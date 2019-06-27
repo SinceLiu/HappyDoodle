@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AskSaveDialog">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!--设置Dialog向下弹出与向上隐藏的动画效果-->
+    <style name='dialog_down_slide_style' parent='android:Animation'>
+        <item name="@android:windowEnterAnimation">@anim/push_down_in</item>
+        <item name="@android:windowExitAnimation">@anim/push_up_out</item>
+	</style>
+    
+</resources>

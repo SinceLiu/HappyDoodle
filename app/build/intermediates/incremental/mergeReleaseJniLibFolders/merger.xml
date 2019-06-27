@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/jniLibs"><file name="armeabi/librbEncrypt.so" path="/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/jniLibs/armeabi/librbEncrypt.so"/></source></dataSet><dataSet config="release"><source path="/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/release/jniLibs"/></dataSet></merger>

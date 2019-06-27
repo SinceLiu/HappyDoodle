@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.readboy.Q.HappyDoodle.GuideBK
+        android:id="@+id/bk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+         />
+
+    <!-- <ImageView
+        android:id="@+id/bk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@anim/launch_bk_anim" /> -->
+
+    <com.readboy.Q.HappyDoodle.TitleView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="168dp"
+	    android:layout_marginTop="0dp"
+         />
+
+    <Button
+        android:id="@+id/closeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="1168dp"
+	    android:layout_marginTop="23dp"
+        android:visibility="visible"
+        android:background="@drawable/guide_close_button_selector"
+        android:soundEffectsEnabled="false"
+         />
+
+</RelativeLayout>

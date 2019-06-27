@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "59,652",
+                        "endLines": "12,18",
+                        "endColumns": "12,9",
+                        "endOffsets": "609,882"
+                    },
+                    "to": {
+                        "startLines": "4,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "165,711",
+                        "endLines": "13,17",
+                        "endColumns": "12,9",
+                        "endOffsets": "706,938"
+                    }
+                },
+                {
+                    "source": "/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "128,59",
+                        "endColumns": "41,67",
+                        "endOffsets": "165,122"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,97",
+                        "endColumns": "41,67",
+                        "endOffsets": "92,160"
+                    }
+                }
+            ]
+        }
+    ]
+}

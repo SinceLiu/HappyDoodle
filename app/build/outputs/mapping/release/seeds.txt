@@ -1,0 +1,327 @@
+android.app.ReadboyActivity: ReadboyActivity()
+android.support.annotation.Keep
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.media.MediaBrowserCompat$MediaItem: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.MediaDescriptionCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.MediaMetadataCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.RatingCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.MediaSessionCompat$QueueItem: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.MediaSessionCompat$ResultReceiverWrapper: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.MediaSessionCompat$Token: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.ParcelableVolumeInfo: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.PlaybackStateCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.PlaybackStateCompat$CustomAction: android.os.Parcelable$Creator CREATOR
+android.support.v4.os.ResultReceiver: android.os.Parcelable$Creator CREATOR
+android.support.v4.view.AbsSavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: int getClientWidth()
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.DrawerLayout: void setDrawerElevation(float)
+android.support.v4.widget.DrawerLayout: float getDrawerElevation()
+android.support.v4.widget.DrawerLayout: void setScrimColor(int)
+android.support.v4.widget.DrawerLayout: void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener)
+android.support.v4.widget.DrawerLayout: void setDrawerLockMode(int)
+android.support.v4.widget.DrawerLayout: void setStatusBarBackground(android.graphics.drawable.Drawable)
+android.support.v4.widget.DrawerLayout: android.graphics.drawable.Drawable getStatusBarBackgroundDrawable()
+android.support.v4.widget.DrawerLayout: void setStatusBarBackground(int)
+android.support.v4.widget.DrawerLayout: void setStatusBarBackgroundColor(int)
+android.support.v4.widget.DrawerLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.NestedScrollView: void setNestedScrollingEnabled(boolean)
+android.support.v4.widget.NestedScrollView: int getNestedScrollAxes()
+android.support.v4.widget.NestedScrollView: float getTopFadingEdgeStrength()
+android.support.v4.widget.NestedScrollView: float getBottomFadingEdgeStrength()
+android.support.v4.widget.NestedScrollView: int getMaxScrollAmount()
+android.support.v4.widget.NestedScrollView: void setOnScrollChangeListener(android.support.v4.widget.NestedScrollView$OnScrollChangeListener)
+android.support.v4.widget.NestedScrollView: void setFillViewport(boolean)
+android.support.v4.widget.NestedScrollView: void setSmoothScrollingEnabled(boolean)
+android.support.v4.widget.NestedScrollView: float getVerticalScrollFactorCompat()
+android.support.v4.widget.NestedScrollView: int getScrollRange()
+android.support.v4.widget.NestedScrollView$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SlidingPaneLayout: void setParallaxDistance(int)
+android.support.v4.widget.SlidingPaneLayout: int getParallaxDistance()
+android.support.v4.widget.SlidingPaneLayout: void setSliderFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getSliderFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setCoveredFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getCoveredFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableLeft(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableRight(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceLeft(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceRight(int)
+android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SwipeRefreshLayout: void setEnabled(boolean)
+android.support.v4.widget.SwipeRefreshLayout: void setColorViewAlpha(int)
+android.support.v4.widget.SwipeRefreshLayout: void setSize(int)
+android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
+android.support.v4.widget.SwipeRefreshLayout: void setRefreshing(boolean)
+android.support.v4.widget.SwipeRefreshLayout: void setAnimationProgress(float)
+android.support.v4.widget.SwipeRefreshLayout: void setProgressBackgroundColor(int)
+android.support.v4.widget.SwipeRefreshLayout: void setProgressBackgroundColorSchemeResource(int)
+android.support.v4.widget.SwipeRefreshLayout: void setProgressBackgroundColorSchemeColor(int)
+android.support.v4.widget.SwipeRefreshLayout: void setColorScheme(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeResources(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeColors(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setDistanceToTriggerSync(int)
+android.support.v4.widget.SwipeRefreshLayout: int getProgressCircleDiameter()
+android.support.v4.widget.SwipeRefreshLayout: void setOnChildScrollUpCallback(android.support.v4.widget.SwipeRefreshLayout$OnChildScrollUpCallback)
+android.support.v4.widget.SwipeRefreshLayout: int getNestedScrollAxes()
+android.support.v4.widget.SwipeRefreshLayout: void setNestedScrollingEnabled(boolean)
+android.view.ReadboySurfaceView: ReadboySurfaceView(android.content.Context,android.util.AttributeSet,int)
+android.view.ReadboySurfaceView: ReadboySurfaceView(android.content.Context,android.util.AttributeSet)
+android.view.ReadboySurfaceView: ReadboySurfaceView(android.content.Context)
+android.view.ReadboySurfaceView: android.view.SurfaceHolder getHolder()
+android.view.ReadboySurfaceView: android.view.SurfaceHolder getSurface()
+android.view.ReadboyView: ReadboyView(android.content.Context,android.util.AttributeSet,int)
+android.view.ReadboyView: ReadboyView(android.content.Context,android.util.AttributeSet)
+android.view.ReadboyView: ReadboyView(android.content.Context)
+com.loveplusplus.update.DialogActivity
+com.loveplusplus.update.DialogActivity: DialogActivity()
+com.loveplusplus.update.DownloadService
+com.loveplusplus.update.DownloadService: DownloadService()
+com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType[] values()
+com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType[] values()
+com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom[] values()
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.assist.QueueProcessingType: com.nostra13.universalimageloader.core.assist.QueueProcessingType[] values()
+com.nostra13.universalimageloader.core.assist.QueueProcessingType: com.nostra13.universalimageloader.core.assist.QueueProcessingType valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.assist.ViewScaleType: com.nostra13.universalimageloader.core.assist.ViewScaleType[] values()
+com.nostra13.universalimageloader.core.assist.ViewScaleType: com.nostra13.universalimageloader.core.assist.ViewScaleType valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme[] values()
+com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme valueOf(java.lang.String)
+com.readboy.Q.HappyDoodle.GuideBK
+com.readboy.Q.HappyDoodle.GuideBK: GuideBK(android.content.Context)
+com.readboy.Q.HappyDoodle.GuideBK: GuideBK(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.GuideBK: void setIsRunning(boolean)
+com.readboy.Q.HappyDoodle.GuideBK: boolean getIsRunning()
+com.readboy.Q.HappyDoodle.GuideBK: void setCallback(com.readboy.Q.HappyDoodle.GuideBK$GuideBKCallback)
+com.readboy.Q.HappyDoodle.HappyDoodleActivity
+com.readboy.Q.HappyDoodle.HappyDoodleActivity: HappyDoodleActivity()
+com.readboy.Q.HappyDoodle.HappyDoodleApp
+com.readboy.Q.HappyDoodle.HappyDoodleApp: HappyDoodleApp()
+com.readboy.Q.HappyDoodle.OpusShow.OpusShowActivity
+com.readboy.Q.HappyDoodle.OpusShow.OpusShowActivity: OpusShowActivity()
+com.readboy.Q.HappyDoodle.R$anim: int push_down_in
+com.readboy.Q.HappyDoodle.R$anim: int push_up_out
+com.readboy.Q.HappyDoodle.R$anim: int slide_in_bottom
+com.readboy.Q.HappyDoodle.R$anim: int slide_in_top
+com.readboy.Q.HappyDoodle.R$anim: int slide_out_bottom
+com.readboy.Q.HappyDoodle.R$anim: int slide_out_up
+com.readboy.Q.HappyDoodle.R$drawable: int ask_dialog
+com.readboy.Q.HappyDoodle.R$drawable: int canvas_0
+com.readboy.Q.HappyDoodle.R$drawable: int delete_hint
+com.readboy.Q.HappyDoodle.R$drawable: int doodle_bk
+com.readboy.Q.HappyDoodle.R$drawable: int empty_photo
+com.readboy.Q.HappyDoodle.R$drawable: int exit_silkworm
+com.readboy.Q.HappyDoodle.R$drawable: int exitbaby_hint
+com.readboy.Q.HappyDoodle.R$drawable: int guide_close_button_01
+com.readboy.Q.HappyDoodle.R$drawable: int guide_close_button_02
+com.readboy.Q.HappyDoodle.R$drawable: int guide_close_button_selector
+com.readboy.Q.HappyDoodle.R$drawable: int ic_empty
+com.readboy.Q.HappyDoodle.R$drawable: int ic_error
+com.readboy.Q.HappyDoodle.R$drawable: int ic_launcher
+com.readboy.Q.HappyDoodle.R$drawable: int ic_stub
+com.readboy.Q.HappyDoodle.R$drawable: int ic_stub_1
+com.readboy.Q.HappyDoodle.R$drawable: int ic_stub_2
+com.readboy.Q.HappyDoodle.R$drawable: int icon_bk
+com.readboy.Q.HappyDoodle.R$drawable: int last_color_page_01
+com.readboy.Q.HappyDoodle.R$drawable: int last_color_page_02
+com.readboy.Q.HappyDoodle.R$drawable: int last_color_page_selector
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click0
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click1
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click10
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click11
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click2
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click3
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click4
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click5
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click6
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click7
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click8
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_click9
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal0
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal1
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal2
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal3
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal4
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal5
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal6
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal7
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal8
+com.readboy.Q.HappyDoodle.R$drawable: int mouse_normal9
+com.readboy.Q.HappyDoodle.R$drawable: int next_canvas_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int next_canvas_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int next_canvas_btn_03
+com.readboy.Q.HappyDoodle.R$drawable: int next_canvas_btn_selector
+com.readboy.Q.HappyDoodle.R$drawable: int next_color_page_01
+com.readboy.Q.HappyDoodle.R$drawable: int next_color_page_02
+com.readboy.Q.HappyDoodle.R$drawable: int next_color_page_selector
+com.readboy.Q.HappyDoodle.R$drawable: int no_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int no_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int no_button_selector
+com.readboy.Q.HappyDoodle.R$drawable: int opus_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int opus_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int opus_del_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int opus_del_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int opus_del_button_selector
+com.readboy.Q.HappyDoodle.R$drawable: int opus_del_flag_01
+com.readboy.Q.HappyDoodle.R$drawable: int opus_set_bk
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_bk
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_last_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_last_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_last_btn_selector
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_next_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_next_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int opus_show_next_btn_selector
+com.readboy.Q.HappyDoodle.R$drawable: int page_indicator_checked
+com.readboy.Q.HappyDoodle.R$drawable: int page_indicator_uncheck
+com.readboy.Q.HappyDoodle.R$drawable: int radio_btn_checked
+com.readboy.Q.HappyDoodle.R$drawable: int save_hint
+com.readboy.Q.HappyDoodle.R$drawable: int select_opus_btn_selector
+com.readboy.Q.HappyDoodle.R$drawable: int selectcanvas_bk
+com.readboy.Q.HappyDoodle.R$drawable: int show0
+com.readboy.Q.HappyDoodle.R$drawable: int show1
+com.readboy.Q.HappyDoodle.R$drawable: int show2
+com.readboy.Q.HappyDoodle.R$drawable: int show_sel
+com.readboy.Q.HappyDoodle.R$drawable: int title1
+com.readboy.Q.HappyDoodle.R$drawable: int upload0
+com.readboy.Q.HappyDoodle.R$drawable: int upload1
+com.readboy.Q.HappyDoodle.R$drawable: int upload_sel
+com.readboy.Q.HappyDoodle.R$drawable: int yes_btn_01
+com.readboy.Q.HappyDoodle.R$drawable: int yes_btn_02
+com.readboy.Q.HappyDoodle.R$drawable: int yes_button_selector
+com.readboy.Q.HappyDoodle.R$id: int bk
+com.readboy.Q.HappyDoodle.R$id: int closeBtn
+com.readboy.Q.HappyDoodle.R$id: int delOpusBtn
+com.readboy.Q.HappyDoodle.R$id: int doodle_view
+com.readboy.Q.HappyDoodle.R$id: int hintText
+com.readboy.Q.HappyDoodle.R$id: int image
+com.readboy.Q.HappyDoodle.R$id: int lastColorPageBtn
+com.readboy.Q.HappyDoodle.R$id: int lastOpusBtn
+com.readboy.Q.HappyDoodle.R$id: int loading
+com.readboy.Q.HappyDoodle.R$id: int mouse
+com.readboy.Q.HappyDoodle.R$id: int myMainLayout
+com.readboy.Q.HappyDoodle.R$id: int nextCanvasBtn
+com.readboy.Q.HappyDoodle.R$id: int nextColorPageBtn
+com.readboy.Q.HappyDoodle.R$id: int nextOpusBtn
+com.readboy.Q.HappyDoodle.R$id: int noBtn
+com.readboy.Q.HappyDoodle.R$id: int opusBtn
+com.readboy.Q.HappyDoodle.R$id: int page_indicator
+com.readboy.Q.HappyDoodle.R$id: int progressBar
+com.readboy.Q.HappyDoodle.R$id: int showBtn
+com.readboy.Q.HappyDoodle.R$id: int title
+com.readboy.Q.HappyDoodle.R$id: int uploadBtn
+com.readboy.Q.HappyDoodle.R$id: int viewpager
+com.readboy.Q.HappyDoodle.R$id: int yesBtn
+com.readboy.Q.HappyDoodle.R$layout: int ask_dialog
+com.readboy.Q.HappyDoodle.R$layout: int color_gridview
+com.readboy.Q.HappyDoodle.R$layout: int doodle
+com.readboy.Q.HappyDoodle.R$layout: int main
+com.readboy.Q.HappyDoodle.R$layout: int opus_set
+com.readboy.Q.HappyDoodle.R$layout: int opus_set_item
+com.readboy.Q.HappyDoodle.R$layout: int opus_show
+com.readboy.Q.HappyDoodle.R$layout: int opus_show_item_pager_image
+com.readboy.Q.HappyDoodle.R$layout: int select_canvas
+com.readboy.Q.HappyDoodle.R$layout: int select_gridview
+com.readboy.Q.HappyDoodle.R$string: int app_name
+com.readboy.Q.HappyDoodle.R$string: int hello
+com.readboy.Q.HappyDoodle.R$style: int AskSaveDialog
+com.readboy.Q.HappyDoodle.R$style: int dialog_down_slide_style
+com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout
+com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout: MyLayout(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout: void setIsIntercept(boolean)
+com.readboy.Q.HappyDoodle.SelectCanvas.SelectCanvasActivity
+com.readboy.Q.HappyDoodle.SelectCanvas.SelectCanvasActivity: SelectCanvasActivity()
+com.readboy.Q.HappyDoodle.TitleView
+com.readboy.Q.HappyDoodle.TitleView: TitleView(android.content.Context)
+com.readboy.Q.HappyDoodle.TitleView: TitleView(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.TitleView: boolean getIsRunning()
+com.readboy.Q.HappyDoodle.doodle.CustomDialog$DialogStyle: com.readboy.Q.HappyDoodle.doodle.CustomDialog$DialogStyle[] values()
+com.readboy.Q.HappyDoodle.doodle.CustomDialog$DialogStyle: com.readboy.Q.HappyDoodle.doodle.CustomDialog$DialogStyle valueOf(java.lang.String)
+com.readboy.Q.HappyDoodle.doodle.DoodleActivity
+com.readboy.Q.HappyDoodle.doodle.DoodleActivity: DoodleActivity()
+com.readboy.Q.HappyDoodle.doodle.DoodleActivity$OPERATION: com.readboy.Q.HappyDoodle.doodle.DoodleActivity$OPERATION[] values()
+com.readboy.Q.HappyDoodle.doodle.DoodleActivity$OPERATION: com.readboy.Q.HappyDoodle.doodle.DoodleActivity$OPERATION valueOf(java.lang.String)
+com.readboy.Q.HappyDoodle.doodle.DoodleView
+com.readboy.Q.HappyDoodle.doodle.DoodleView: DoodleView(android.content.Context)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: DoodleView(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: android.graphics.Bitmap getTemp()
+com.readboy.Q.HappyDoodle.doodle.DoodleView: void setTemp(android.graphics.Bitmap)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: android.graphics.Bitmap getBm()
+com.readboy.Q.HappyDoodle.doodle.DoodleView: void setBm(android.graphics.Bitmap)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: int getColor()
+com.readboy.Q.HappyDoodle.doodle.DoodleView: void setColor(int)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: void setDraw(boolean)
+com.readboy.Q.HappyDoodle.doodle.DoodleView: android.graphics.Bitmap getTemp2()
+com.readboy.Q.HappyDoodle.doodle.DoodleView: void setTemp2(android.graphics.Bitmap)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: VerticalViewPager(android.content.Context)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: VerticalViewPager(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setScrollState(int)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setAdapter(com.readboy.Q.HappyDoodle.doodle.VerticalPagerAdapter)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: com.readboy.Q.HappyDoodle.doodle.VerticalPagerAdapter getAdapter()
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setOnAdapterChangeListener(com.readboy.Q.HappyDoodle.doodle.VerticalViewPager$OnAdapterChangeListener)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setCurrentItem(int)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: int getCurrentItem()
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setOnPageChangeListener(com.readboy.Q.HappyDoodle.doodle.VerticalViewPager$OnPageChangeListener)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: int getOffscreenPageLimit()
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setOffscreenPageLimit(int)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setPageMargin(int)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: int getPageMargin()
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setPageMarginDrawable(int)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager: void setScrollingCacheEnabled(boolean)
+com.readboy.Q.HappyDoodle.doodle.VerticalViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+com.readboy.Q.HappyDoodle.opusSet.MyLayout
+com.readboy.Q.HappyDoodle.opusSet.MyLayout: MyLayout(android.content.Context,android.util.AttributeSet)
+com.readboy.Q.HappyDoodle.opusSet.MyLayout: void setIsPopupDialog(boolean)
+com.readboy.Q.HappyDoodle.opusSet.OpusSetActivity
+com.readboy.Q.HappyDoodle.opusSet.OpusSetActivity: OpusSetActivity()
+com.readboy.Q.HappyDoodle.util.BaseActivity: BaseActivity()
+com.readboy.encrypt.Encrypt
+com.readboy.encrypt.Encrypt: byte[] nativeEndec(byte[],int)
+com.readboy.encrypt.Encrypt: int macCheck()
+com.yanzhenjie.permission.R$string: int app_name

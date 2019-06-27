@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selectcanvas_bk"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+       	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"  >
+	    <Button
+	        android:id="@+id/opusBtn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginLeft="1011dp"
+	        android:layout_marginTop="23dp"
+	        android:background="@drawable/select_opus_btn_selector"
+	        android:soundEffectsEnabled="false"
+	         />
+	
+	    <Button
+	        android:id="@+id/closeBtn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginLeft="1168dp"
+	        android:layout_marginTop="23dp"
+	        android:visibility="visible"
+	        android:background="@drawable/guide_close_button_selector" 
+	        android:soundEffectsEnabled="false"
+	        />
+    </RelativeLayout>
+    
+    <RelativeLayout
+       	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"  >
+	    
+	    <!-- viewPager控件 用于手势滑动翻页  -->
+	    <android.support.v4.view.ViewPager  
+	        android:id="@+id/viewpager"  
+	        android:layout_width="1230dp"  
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="42dp"
+	        android:layout_centerHorizontal="true"
+	        >
+	    </android.support.v4.view.ViewPager>
+	    
+	    <RadioGroup 
+	        android:id="@+id/page_indicator"
+	        android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_marginBottom="22dp"
+		    android:gravity="center_horizontal"
+		    android:orientation="horizontal"
+	        >
+	         <!-- <RadioButton 
+	            android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:checked="true"
+	            android:text="nan"/>
+	        <RadioButton 
+	            android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+	            android:text="fwer"/> -->
+	    </RadioGroup>
+	</RelativeLayout>
+</com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout>

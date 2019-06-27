@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doodle_bk"
+    android:splitMotionEvents="false"
+    >
+	
+    <Button
+        android:id="@+id/closeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="1168dp"
+        android:layout_marginTop="23dp"
+        android:visibility="visible"
+        android:background="@drawable/guide_close_button_selector" 
+        android:soundEffectsEnabled="false"
+        />
+    
+    <ImageView
+        android:id="@+id/title"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="530dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title1"
+        />
+    
+    <RelativeLayout
+        android:layout_marginLeft="229dp"
+        android:layout_marginTop="155dp"
+        android:layout_width="925dp"
+        android:layout_height="488dp"
+        >
+
+        <com.readboy.Q.HappyDoodle.doodle.DoodleView
+            android:id="@+id/doodle_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+             >
+        </com.readboy.Q.HappyDoodle.doodle.DoodleView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+         	android:layout_centerInParent="true"
+             />
+
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/showBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1112dp"
+        android:layout_marginTop="289dp"
+        android:background="@drawable/show_sel" 
+        android:visibility="gone"
+        android:soundEffectsEnabled="false"
+        />
+    
+    <Button
+        android:id="@+id/opusBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1117dp"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/select_opus_btn_selector" 
+        android:soundEffectsEnabled="false"
+        />
+
+    <Button
+        android:id="@+id/nextCanvasBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1117dp"
+        android:layout_marginTop="401dp"
+        android:enabled="false"
+        android:background="@drawable/next_canvas_btn_selector" 
+        android:soundEffectsEnabled="false"
+        />
+    
+    <Button
+        android:id="@+id/uploadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1129dp"
+        android:layout_marginTop="532dp"
+        android:visibility="invisible"
+        android:background="@drawable/upload_sel" 
+        android:soundEffectsEnabled="false"
+        />
+    
+	<Button
+		android:id="@+id/lastColorPageBtn"
+		android:layout_marginLeft="123dp"
+		android:layout_marginTop="39dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/last_color_page_selector" 
+		android:soundEffectsEnabled="false"
+		/>
+    
+    <Button
+        android:id="@+id/nextColorPageBtn"
+        android:layout_marginLeft="123dp"
+		android:layout_marginTop="725dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_color_page_selector"
+        android:soundEffectsEnabled="false"
+         />
+    
+    <com.readboy.Q.HappyDoodle.doodle.VerticalViewPager 
+        android:id="@+id/viewpager"
+        android:layout_marginLeft="46dp"
+		android:layout_marginTop="133dp"
+        android:layout_width="202dp"
+        android:layout_height="569dp"
+        >
+        
+        
+    </com.readboy.Q.HappyDoodle.doodle.VerticalViewPager>
+    
+    <ImageView 
+        android:id="@+id/mouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1034dp"
+        android:layout_marginTop="614dp"
+        android:background="@drawable/mouse_normal0"
+        />
+    
+    <!-- <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_marginLeft="46dp"
+		android:layout_marginTop="133dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+    </android.support.v4.view.ViewPager> -->
+    
+</RelativeLayout>

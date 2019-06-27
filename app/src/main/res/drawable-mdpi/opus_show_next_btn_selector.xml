@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 指定按钮无效时的图片 -->	
+	<item android:state_enabled="false"
+		android:drawable="@drawable/opus_show_next_btn_02"
+	/>
+	
+	<!-- 指定按钮按钮下时的图片 -->
+	<item android:state_pressed="true"
+		android:drawable="@drawable/opus_show_next_btn_02"
+	/>
+	<!-- 指定按钮松开时的图片 -->	
+	<item android:state_pressed="false"
+		android:drawable="@drawable/opus_show_next_btn_01"
+	/>
+	
+</selector>

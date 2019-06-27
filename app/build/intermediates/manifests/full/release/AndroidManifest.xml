@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.readboy.Q.HappyDoodle"
+    android:versionCode="190626001"
+    android:versionName="1.3.190626001" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="24" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- Include next permission if you want to allow UIL to cache images on SD card -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- android:persistent="true" -->
+    <application
+        android:name="com.readboy.Q.HappyDoodle.HappyDoodleApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+
+        <!--
+        singleTask是为了保证每次从launcher中进都重新运行，如果有此标志的activity是 其所在Task的根
+        activity，则再次启动此activity时(不会new一个新实例，而是直接恢复)会自动杀掉Task中的其余activity，
+        因此带来一个问题，即不能保存activity的状态了，比如涂鸦后的图片未保存，然后按了home键，然后重新进入就会丢失上次涂鸦的图片。
+        另外，因为此处，作为Main的activity会被杀掉，所以不是Task的根activity，所以将SelectCanvasActivity
+        也设置为singleTask
+        -->
+        <activity
+            android:name="com.readboy.Q.HappyDoodle.HappyDoodleActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+
+                <!-- 读书郎apk识别标志 -->
+                <action android:name="com.readboy.application" />
+                <action android:name="android.readboy.FLAG_HIDE_SYSTEMBAR" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.readboy.Q.HappyDoodle.SelectCanvas.SelectCanvasActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="选择画布"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 隐藏系统条 -->
+                <action android:name="android.readboy.FLAG_HIDE_SYSTEMBAR" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.readboy.Q.HappyDoodle.doodle.DoodleActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="涂鸦"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
+            android:taskAffinity="com.readboy.Q.HappyDoodle.DoodleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 隐藏系统条 -->
+                <action android:name="android.readboy.FLAG_HIDE_SYSTEMBAR" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.readboy.Q.HappyDoodle.opusSet.OpusSetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="作品集"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 隐藏系统条 -->
+                <action android:name="android.readboy.FLAG_HIDE_SYSTEMBAR" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.readboy.Q.HappyDoodle.OpusShow.OpusShowActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="作品展示"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
+            android:taskAffinity="com.readboy.Q.HappyDoodle.DoodleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 隐藏系统条 -->
+                <action android:name="android.readboy.FLAG_HIDE_SYSTEMBAR" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.loveplusplus.update.DialogActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+
+        <service
+            android:name="com.loveplusplus.update.DownloadService"
+            android:enabled="true"
+            android:process=":dlservice" >
+        </service>
+    </application>
+
+</manifest>

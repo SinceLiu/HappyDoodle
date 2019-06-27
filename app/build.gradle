@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'q5'
+            keyPassword '23378528'
+            storeFile file('/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/keyfile/readboy1.key')
+            storePassword 'soft@readboy.com'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.readboy.Q.HappyDoodle"
+        minSdkVersion 19
+        targetSdkVersion 24
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+ //           proguardFiles 'proguard-project.txt'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:24.0.0'
+    compile files('libs/AutoUpdate.jar')
+    compile files('libs/reward.jar')
+    compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
+    compile files('libs/readboy-support-g30-1.0.jar');
+    compile 'com.yanzhenjie:permission:1.0.2'
+}

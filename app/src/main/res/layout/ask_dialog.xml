@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:splitMotionEvents="false"
+    >
+    
+    <ImageView 
+        android:layout_marginLeft="318dp"
+        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ask_dialog"
+        />
+    
+    <Button
+        android:id="@+id/yesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="423dp"
+        android:layout_marginTop="401dp"
+        android:background="@drawable/yes_button_selector" 
+        android:soundEffectsEnabled="false"
+        />
+    <!-- android:layout_marginLeft="105dp"
+        android:layout_marginTop="401dp" 
+        android:layout_marginLeft="423dp"-->
+
+    <Button
+        android:id="@+id/noBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="669dp"
+        android:layout_marginTop="401dp"
+        android:background="@drawable/no_button_selector" 
+        android:soundEffectsEnabled="false"
+        />
+<!-- android:layout_marginLeft="351dp"
+        android:layout_marginTop="401dp" 
+        android:layout_marginLeft="669dp"-->
+    
+    <RelativeLayout 
+        android:layout_width="418dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="440dp"
+        >
+        <ImageView
+	        android:id="@+id/hintText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+			/>
+    </RelativeLayout>
+    
+    
+    
+</RelativeLayout>
