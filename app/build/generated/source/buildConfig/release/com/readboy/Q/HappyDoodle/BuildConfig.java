@@ -8,6 +8,6 @@ public final class BuildConfig {
   public static final String APPLICATION_ID = "com.readboy.Q.HappyDoodle";
   public static final String BUILD_TYPE = "release";
   public static final String FLAVOR = "";
-  public static final int VERSION_CODE = 190626001;
-  public static final String VERSION_NAME = "1.3.190626001";
+  public static final int VERSION_CODE = 190627001;
+  public static final String VERSION_NAME = "1.3.190627001";
 }
