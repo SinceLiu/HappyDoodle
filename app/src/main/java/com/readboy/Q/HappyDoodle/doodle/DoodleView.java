@@ -172,7 +172,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 			this.temp.recycle();
 		//Log.e(TAG, "setTemp++++++++++");
 		float width = HappyDoodleApp.getScreenWidth();
-		if (width >= 2560) {
+		if (width >= 2560&&width!=2736) {
 			float scaleX = 1.5f;//width / 1280f;
 			Matrix matrix = new Matrix();
 			matrix.setScale(scaleX, scaleX);// 缩小为原来的一半
@@ -242,7 +242,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 			this.temp2.recycle();
 
 		float width = HappyDoodleApp.getScreenWidth();
-		if (width >= 2560) {
+		if (width >= 2560&&width!=2736) {
 			float scaleX = 1.5f;//width / 1280f;
 			Matrix matrix = new Matrix();
 			matrix.setScale(scaleX, scaleX);// 缩小为原来的一半

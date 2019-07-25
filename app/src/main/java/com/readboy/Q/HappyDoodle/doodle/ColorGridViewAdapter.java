@@ -110,7 +110,11 @@ public class ColorGridViewAdapter extends BaseAdapter {
 		if (convertView == null) {
 			imageView = new ImageView(mContext);
 			int w = HappyDoodleApp.getScreenWidth();
-			if (w>1280){
+			if (w==Constant.C20_WIDTH){
+				imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				imageView.setLayoutParams(new GridView.LayoutParams(Constant.COLOR_THUMB_WIDTH*2, Constant.COLOR_THUMB_HEIGHT*2));
+			}
+			else if (w>1280){
 				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				GridView.LayoutParams gl;
 //				if (w==1920){

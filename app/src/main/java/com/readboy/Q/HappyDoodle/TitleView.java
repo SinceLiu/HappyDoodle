@@ -219,7 +219,7 @@ public class TitleView extends ReadboySurfaceView implements SurfaceHolder.Callb
 				if (bitmap != null) {
 					w = bitmap.getWidth();
 					h = bitmap.getHeight();
-					if (mWidth!=1280){
+					if (mWidth!=1280&&mWidth!=Constant.C20_WIDTH){
 						sw = 1280f;// 默认情况
 						scaleX = mWidth / sw;
 						matrix = new Matrix();

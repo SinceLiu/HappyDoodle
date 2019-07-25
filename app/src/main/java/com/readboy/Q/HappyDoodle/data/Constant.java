@@ -45,7 +45,9 @@ public class Constant {
 	
 	public static final int SILKWORM_INDEX = 43;		//蚕宝宝成长记
 	public static final int LADYBUG_INDEX = 43;			//瓢虫的世界
-	
+
+
+	public static final int C20_WIDTH=2736;
 	/** 最多保存84个作品 */
 	public static final int MAX_OPUS = 14*6;
 	/** 最小磁盘剩余空间，单位字节 */
@@ -53,7 +55,7 @@ public class Constant {
 	public static final long M = (10*1024*1024);
 	public static final long MIN_DISK_SPACE = K * M;//(10*1024*1024);
 	/** 作品缩略图宽 */
-	public static final int OPUS_THUMB_WIDTH = 343;	
+	public static final int OPUS_THUMB_WIDTH = 343;
 	/** 作品缩略图高 */
 	public static final int OPUS_THUMB_HEIGHT = 273;
 	/** 选择画布界面每页最多几个图标 */

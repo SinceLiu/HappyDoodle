@@ -564,7 +564,7 @@ public class DoodleActivity extends BaseActivity {
 
 	private void setTitleByBmp(Bitmap bitmap) {
 		int w = HappyDoodleApp.getScreenWidth();
-		if (w>1280) {
+		if (w>1280&&w!=2736) {
 			ViewGroup.LayoutParams lp;
 			lp = mTitle.getLayoutParams();
 			lp.width = Utils.dip2px(getApplicationContext(), 189);

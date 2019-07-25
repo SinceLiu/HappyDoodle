@@ -20,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="423dp"
-        android:layout_marginTop="401dp"
+        android:layout_marginTop="426dp"
         android:background="@drawable/yes_button_selector" 
         android:soundEffectsEnabled="false"
         />
@@ -35,7 +35,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="669dp"
-        android:layout_marginTop="401dp"
+        android:layout_marginTop="426dp"
         android:background="@drawable/no_button_selector" 
         android:soundEffectsEnabled="false"
         />

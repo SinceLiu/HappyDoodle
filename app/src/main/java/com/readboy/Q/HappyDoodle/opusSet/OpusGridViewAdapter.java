@@ -90,7 +90,13 @@ public class OpusGridViewAdapter extends BaseAdapter {
 		if (convertView == null) {
 			imageView = new ImageView(mContext);
 			int w = HappyDoodleApp.getScreenWidth();
-			if (w>1280){
+			if (w==Constant.C20_WIDTH){
+				imageView.setBackgroundResource(R.drawable.icon_bk);
+				imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+				imageView.setPadding(17, 34, 17, 19);
+				imageView.setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
+			}
+			else if (w>1280){
 				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				GridView.LayoutParams gl = new GridView.LayoutParams(Utils.dip2px(mContext,Constant.OPUS_THUMB_WIDTH), Utils.dip2px(mContext,Constant.OPUS_THUMB_HEIGHT));
 				imageView.setLayoutParams(gl);

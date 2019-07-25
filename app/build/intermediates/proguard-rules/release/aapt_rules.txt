@@ -31,7 +31,7 @@
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:38
 -keep class com.readboy.Q.HappyDoodle.doodle.DoodleView { <init>(...); }
 
-# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:119
+# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:124
 -keep class com.readboy.Q.HappyDoodle.doodle.VerticalViewPager { <init>(...); }
 
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/opus_set.xml:2

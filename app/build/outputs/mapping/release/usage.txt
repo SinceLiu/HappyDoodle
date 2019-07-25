@@ -3425,6 +3425,7 @@ com.readboy.Q.HappyDoodle.data.Constant:
     public static final java.lang.String SAVE_PATH
     public static final int SILKWORM_INDEX
     public static final int LADYBUG_INDEX
+    public static final int C20_WIDTH
     public static final int MAX_OPUS
     public static final long K
     public static final long M

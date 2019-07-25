@@ -40,7 +40,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class SelectCanvasActivity extends BaseActivity implements PermissionListener {
-	private static final String TAG = "lqn-SelectCanvasActivity";
+	private static final String TAG = "SelectCanvasActivity";
 	private int apMode;		//ap模式
 	/** 需要保存的数据，以备系统重建activity时恢复状态，注：启动当前activity的intent里的数据并不需要保存，因为
 	 *	系统会保存该intent，即重建时得到的intent是被杀掉前的intent

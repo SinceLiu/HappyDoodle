@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 指定按钮按下时的图片 -->
+	<item android:state_checked="true"
+		android:drawable="@drawable/page_indicator_checked"
+	/>
+	<!-- 指定按钮松开时的图片 -->	
+	<item android:state_checked="false"
+		android:drawable="@drawable/page_indicator_uncheck"
+	/>
+
+</selector>

@@ -27,9 +27,9 @@
 	        android:id="@+id/closeBtn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_marginLeft="1168dp"
+	        android:layout_marginRight="10dp"
 	        android:layout_marginTop="23dp"
 	        android:visibility="visible"
 	        android:background="@drawable/guide_close_button_selector"
@@ -41,7 +41,7 @@
 	        android:id="@+id/viewpager"  
 	        android:layout_width="1230dp"  
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="168dp"
+	        android:layout_marginTop="178dp"
 	        android:layout_centerHorizontal="true"
 	         >
 	         
