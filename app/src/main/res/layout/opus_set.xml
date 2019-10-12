@@ -41,7 +41,7 @@
 	        android:id="@+id/viewpager"  
 	        android:layout_width="1230dp"  
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="178dp"
+	        android:layout_marginTop="238dp"
 	        android:layout_centerHorizontal="true"
 	         >
 	         
@@ -51,7 +51,8 @@
 	        android:id="@+id/page_indicator"
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:layout_marginTop="738dp"
+		    android:layout_marginBottom="15dp"
+			android:layout_alignParentBottom="true"
 		    android:gravity="center_horizontal"
 		    android:orientation="horizontal"
 	        >

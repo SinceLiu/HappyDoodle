@@ -7,15 +7,23 @@ import com.readboy.Q.HappyDoodle.R;
 import com.readboy.Q.HappyDoodle.data.Constant;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
+
 
 public class ViewPagerAdapter extends PagerAdapter {
 	private static final String TAG = "lqn-ViewPagerAdapter";
@@ -31,6 +39,8 @@ public class ViewPagerAdapter extends PagerAdapter {
 	private HashMap<Integer, Object> mObjs = new LinkedHashMap<Integer, Object>();
 	/** 上下文 */
 	private Context mContext;
+
+
 	
 	public ViewPagerAdapter(Context context,int pageCount,int totalCanvas) {
 		mPageCount = pageCount;
@@ -51,7 +61,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 			//addGridViewToCache(i);
 		}
 	}
-	
+
 	/**
 	 * 实例化一个GridView
 	 * @param index GridView在viewpager中的位置
@@ -63,6 +73,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 		GridView gridView = (GridView) inflater.inflate(R.layout.select_gridview, null);
 		gridView.setAdapter(new MyGridViewAdapter(mContext,index,mPageCount,mTotalCanvas));
 		gridView.setOnItemClickListener(new MyOnItemClickListener(index));
+//		gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		return gridView;
 	}
 	
@@ -149,8 +160,10 @@ public class ViewPagerAdapter extends PagerAdapter {
 			intent.putExtra("CANVAS_INDEX", Constant.MAX_ITEM_PER_CANVAS*pageIdx+position);
 			//intent.putExtra("CANVAS_PATH", path+"canvas_"+(Constant.MAX_ITEM_PER_CANVAS*pageIdx+position)+".png");
 			mContext.startActivity(intent);*/
-			
-			
+//			if((int)view.getTag()==Constant.MAX_ITEM_PER_CANVAS*pageIdx+position) {
+//				((ImageView) view).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//				((ImageView) view).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH * 2, Constant.OPUS_THUMB_HEIGHT * 2));
+//			}
 			((SelectCanvasActivity)mContext).getMyMainLayout().setIsIntercept(true);
 			
 			if(SelectCanvasActivity.mIsForbidOp)

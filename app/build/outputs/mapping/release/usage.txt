@@ -3387,6 +3387,7 @@ com.readboy.Q.HappyDoodle.R$string
 com.readboy.Q.HappyDoodle.R$style
 com.readboy.Q.HappyDoodle.SelectCanvas.MyGridViewAdapter:
     private static final java.lang.String TAG
+    141:156:private void startAnimation(android.view.View,boolean)
 com.readboy.Q.HappyDoodle.SelectCanvas.MyLayout:
     private static final java.lang.String TAG
 com.readboy.Q.HappyDoodle.SelectCanvas.SelectCanvasActivity:
@@ -3484,7 +3485,7 @@ com.readboy.Q.HappyDoodle.doodle.DoodleActivity:
 com.readboy.Q.HappyDoodle.doodle.DoodleActivity$MyOnPagerChangeListenner
 com.readboy.Q.HappyDoodle.doodle.DoodleView:
     private static final java.lang.String TAG
-    350:354:public static android.graphics.Bitmap small(android.graphics.Bitmap)
+    352:356:public static android.graphics.Bitmap small(android.graphics.Bitmap)
 com.readboy.Q.HappyDoodle.doodle.FloodFillAlgorithm
 com.readboy.Q.HappyDoodle.doodle.VerticalAdapter
 com.readboy.Q.HappyDoodle.doodle.VerticalPagerAdapter:

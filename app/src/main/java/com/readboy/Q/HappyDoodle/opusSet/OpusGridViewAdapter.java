@@ -8,6 +8,7 @@ import com.readboy.Q.HappyDoodle.util.ImageWorker;
 import com.readboy.Q.HappyDoodle.util.Utils;
 
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -112,6 +113,32 @@ public class OpusGridViewAdapter extends BaseAdapter {
 		} else {
 			imageView = (ImageView) convertView;
 		}
+//		imageView.setTag(position);
+//		imageView.setOnTouchListener(new View.OnTouchListener() {
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				switch (event.getAction()){
+//					case MotionEvent.ACTION_DOWN:
+//						((ImageView)v).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//						((ImageView)v).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2-15, Constant.OPUS_THUMB_HEIGHT*2-15));
+////						startAnimation (v,true);
+//						break;
+//
+//					case MotionEvent.ACTION_UP:
+//						((ImageView)v).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//						((ImageView)v).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
+////						startAnimation (v,false);
+////						((SelectCanvasActivity)mContext).playIconSoundByIndex((int)v.getTag());
+//
+//
+//					default:
+//						((ImageView)v).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//						((ImageView)v).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
+//						break;
+//				}
+//				return false;
+//			}
+//		});
 		
 		String urlString = "file://"+OpusSetActivity.getOpusFilesPath().get(Constant.MAX_ITEM_PER_CANVAS*mPageIndex+position);
 		ImageLoader.getInstance().displayImage(urlString, imageView, OpusSetActivity.getOptions());

@@ -17,6 +17,8 @@ import com.readboy.Q.HappyDoodle.util.ToastUtils;
 import android.app.ReadboyActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -27,6 +29,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -116,7 +119,7 @@ public class OpusViewPagerAdapter extends PagerAdapter {
 		//gridView.setSelected(false);
 		gridView.setOnItemClickListener(new MyOnItemClickListener(index));
 		gridView.setOnItemLongClickListener(new MyOnItemLongClickListener(index));
-		
+//		gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		return gridView;
 	}
 	
@@ -257,7 +260,8 @@ public class OpusViewPagerAdapter extends PagerAdapter {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			//Log.e(TAG, "position="+position);
-			
+//			((ImageView)view).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//			((ImageView)view).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
 			Intent intent = new Intent(mContext,OpusShowActivity.class);
 			intent.putExtra("TOTAL_PAGE", mTotalCanvas);
 			intent.putExtra("CUR_PAGE", Constant.MAX_ITEM_PER_CANVAS*pageIdx+position);
@@ -289,6 +293,8 @@ public class OpusViewPagerAdapter extends PagerAdapter {
 		public boolean onItemLongClick(AdapterView<?> parent, View view,
 				int position, long id) {
 			//Log.e(TAG, "position="+position);
+//			((ImageView)view).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//			((ImageView)view).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
 			mSelectIndex = Constant.MAX_ITEM_PER_CANVAS*pageIdx+position;
 			((OpusSetActivity)mContext).showCustomDialog();
 			OpusSetActivity.getMyMainLayout().setIsPopupDialog(true);

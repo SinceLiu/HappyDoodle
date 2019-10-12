@@ -14,7 +14,7 @@
 -keep class com.readboy.Q.HappyDoodle.doodle.DoodleActivity { <init>(...); }
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/build/intermediates/manifests/full/release/AndroidManifest.xml:80
 -keep class com.readboy.Q.HappyDoodle.opusSet.OpusSetActivity { <init>(...); }
-# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/select_canvas.xml:43
+# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/select_canvas.xml:44
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/opus_show.xml:11
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/opus_set.xml:40
 -keep class android.support.v4.view.ViewPager { <init>(...); }
@@ -28,10 +28,10 @@
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/main.xml:20
 -keep class com.readboy.Q.HappyDoodle.TitleView { <init>(...); }
 
-# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:38
+# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:39
 -keep class com.readboy.Q.HappyDoodle.doodle.DoodleView { <init>(...); }
 
-# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:124
+# Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/doodle.xml:126
 -keep class com.readboy.Q.HappyDoodle.doodle.VerticalViewPager { <init>(...); }
 
 # Referenced at /Users/zhouwei/Downloads/clevercourse/HappyDoodle1/app/src/main/res/layout/opus_set.xml:2

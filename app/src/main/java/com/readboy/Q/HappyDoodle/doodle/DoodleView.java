@@ -12,6 +12,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Point;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
@@ -21,8 +22,8 @@ import android.view.MotionEvent;
 import android.view.ReadboyView;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
+//import android.widget.RelativeLayout;
+//import android.widget.RelativeLayout.LayoutParams;
 
 /**
  * 自定义的供填充颜色用的view。为了去掉填充后的锯齿，采用了叠加两层bitmap的技巧，底层的bitmap是保留锯齿的欲填充图，
@@ -119,6 +120,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 			isInitBm = true;
 
 		}*/
+		canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
 		//Log.e(TAG, "temp2="+temp2+",isDoodleViewInitEnd="+DoodleActivity.isDoodleViewInitEnd);
 		if(bm != null && temp2 != null && DoodleActivity.isDoodleViewInitEnd)
 		{
@@ -127,9 +129,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 					0, p);
 		}
 		if(bm != null && !bm.isRecycled()){
-			LayoutParams layoutParams = new LayoutParams(bm.getWidth(), bm.getHeight());
-			layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-			setLayoutParams(layoutParams);
+//			LayoutParams layoutParams = new LayoutParams(bm.getWidth(), bm.getHeight());
+//			layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+//			setLayoutParams(layoutParams);
 		}
 	}
 

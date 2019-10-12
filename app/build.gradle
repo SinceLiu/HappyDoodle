@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'q5'
             keyPassword '23378528'
-            storeFile file('/Users/zhouwei/Downloads/clevercourse/HappyDoodle1/keyfile/readboy1.key')
+            storeFile file('F:/AndroidStudioWorkSpace/HappyDoodle/keyfile/readboy1.key')
             storePassword 'soft@readboy.com'
         }
     }

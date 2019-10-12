@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.readboy.Q.HappyDoodle"
-    android:versionCode="190725001"
-    android:versionName="1.3.190725001" >
+    android:versionCode="190727001"
+    android:versionName="1.3.190727001" >
 
     <uses-sdk
         android:minSdkVersion="15"

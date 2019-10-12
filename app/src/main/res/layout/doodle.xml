@@ -27,18 +27,19 @@
         android:layout_height="wrap_content"
         android:src="@drawable/title1"
         />
-    
-    <RelativeLayout
-        android:layout_marginLeft="229dp"
-        android:layout_marginTop="155dp"
-        android:layout_width="925dp"
-        android:layout_height="488dp"
-        >
+    <!--android:layout_width="925dp"-->
+    <!--android:layout_height="488dp"-->
+    <!--android:layout_marginLeft="229dp"-->
+    <!--android:layout_marginTop="155dp"-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
         <com.readboy.Q.HappyDoodle.doodle.DoodleView
             android:id="@+id/doodle_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="682dp"
+            android:layout_height="522dp"
             android:layout_centerInParent="true"
              >
         </com.readboy.Q.HappyDoodle.doodle.DoodleView>
@@ -49,9 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
          	android:layout_centerInParent="true"
+            android:layout_gravity="center"
              />
 
-    </RelativeLayout>
+    </FrameLayout>
     
     <Button
         android:id="@+id/showBtn"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:horizontalSpacing="6dp"
-    android:verticalSpacing="16dp"
+    android:verticalSpacing="32dp"
     android:gravity="center_horizontal|center_vertical"
     android:numColumns="3"
     android:soundEffectsEnabled="false"

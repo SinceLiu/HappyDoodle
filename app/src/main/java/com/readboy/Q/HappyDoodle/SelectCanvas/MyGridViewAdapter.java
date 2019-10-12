@@ -7,8 +7,12 @@ import com.readboy.Q.HappyDoodle.util.Utils;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -31,6 +35,11 @@ public class MyGridViewAdapter extends BaseAdapter {
 	//private ArrayList<ImageView> mItems = new ArrayList<ImageView>();
 	/** 上下文 */
 	private Context mContext;
+
+	ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.98f, 1.0f, 0.98f,
+			Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+	ScaleAnimation scaleAnimation1 = new ScaleAnimation(0.98f, 1.0f, 0.98f, 1.0f,
+			Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 	
 	public MyGridViewAdapter(Context context,int pageIndex,int pageCount,int totalCanvas) {
 		mContext = context;
@@ -90,7 +99,31 @@ public class MyGridViewAdapter extends BaseAdapter {
 		} else {
 			imageView = (ImageView) convertView;
 		}
-		
+//		imageView.setTag(Constant.MAX_ITEM_PER_CANVAS*mPageIndex+position);
+//		imageView.setOnTouchListener(new View.OnTouchListener() {
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				switch (event.getAction()){
+//					case MotionEvent.ACTION_DOWN:
+//						int num = (int) v.getTag();
+//						((ImageView)v).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//						((ImageView)v).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2-15, Constant.OPUS_THUMB_HEIGHT*2-15));
+////						startAnimation (v,true);
+//						break;
+//
+//					case MotionEvent.ACTION_UP:
+//						((ImageView)v).setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//						((ImageView)v).setLayoutParams(new GridView.LayoutParams(Constant.OPUS_THUMB_WIDTH*2, Constant.OPUS_THUMB_HEIGHT*2));
+////						startAnimation (v,false);
+////						((SelectCanvasActivity)mContext).playIconSoundByIndex((int)v.getTag());
+//
+//
+//				}
+//				return false;
+//			}
+//		});
+
+
 		String dir = "";
 		if(mAge == 0)
 			dir = "pic/canvas_3-4/";
@@ -102,6 +135,24 @@ public class MyGridViewAdapter extends BaseAdapter {
 		
 		ImageLoader.getInstance().displayImage(urlString, imageView, SelectCanvasActivity.getOptions());
 		return imageView;
+	}
+
+	private void startAnimation(View view, boolean flag) {
+		AnimationSet animationSet = new AnimationSet(true);
+		if (animationSet != null){//&& manimationSet != animationSet) {
+			if (flag) {
+				scaleAnimation.setDuration(50);
+				animationSet.addAnimation(scaleAnimation);
+				animationSet.setFillAfter(false);
+				view.startAnimation(animationSet);
+			}else{
+				scaleAnimation1.setDuration(50);
+				animationSet.addAnimation(scaleAnimation1);
+				animationSet.setFillAfter(true);
+				view.startAnimation(animationSet);
+//				manimationSet = animationSet;
+			}
+		}
 	}
 
 }

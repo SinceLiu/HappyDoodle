@@ -3062,12 +3062,14 @@ com.readboy.Q.HappyDoodle.OpusShow.OpusShowViewPagerAdapter$2 -> com.readboy.Q.H
     int[] $SwitchMap$com$nostra13$universalimageloader$core$assist$FailReason$FailType -> a
     void <clinit>() -> <clinit>
 com.readboy.Q.HappyDoodle.SelectCanvas.MyGridViewAdapter -> com.readboy.Q.HappyDoodle.SelectCanvas.a:
-    int mAge -> a
-    int mPageCount -> b
-    int mPageIndex -> c
-    int mItemCount -> d
-    int mTotalCanvas -> e
-    android.content.Context mContext -> f
+    int mAge -> c
+    int mPageCount -> d
+    int mPageIndex -> e
+    int mItemCount -> f
+    int mTotalCanvas -> g
+    android.content.Context mContext -> h
+    android.view.animation.ScaleAnimation scaleAnimation -> a
+    android.view.animation.ScaleAnimation scaleAnimation1 -> b
     void <init>(android.content.Context,int,int,int) -> <init>
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
