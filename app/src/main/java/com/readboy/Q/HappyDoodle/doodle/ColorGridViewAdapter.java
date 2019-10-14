@@ -65,8 +65,9 @@ public class ColorGridViewAdapter extends BaseAdapter {
 	 */
 	public void setSelected(int selIndex)
 	{
-		if(selIndex > -1 && selIndex < mItemCount)
-			mSelectedInThisPage = selIndex;
+		if(selIndex > -1 && selIndex < mItemCount) {
+            mSelectedInThisPage = selIndex;
+        }
 		//notifyDataSetChanged();
 	}
 	

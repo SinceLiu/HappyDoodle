@@ -47,7 +47,7 @@ public class Constant {
 	public static final int LADYBUG_INDEX = 43;			//瓢虫的世界
 
 
-	public static final int C20_WIDTH=2736;
+	public static final int C20_WIDTH=2880;
 	/** 最多保存84个作品 */
 	public static final int MAX_OPUS = 14*6;
 	/** 最小磁盘剩余空间，单位字节 */
@@ -102,9 +102,10 @@ public class Constant {
 	 * @return color数组中对应索引的颜色值
 	 */
 	public static int getColor(int index) {
-		if (index >= 0 && index < color.length)
+		if (index >= 0 && index < color.length) {
 			return color[index];
-		else
+		} else {
 			return 0;
+		}
 	}
 }

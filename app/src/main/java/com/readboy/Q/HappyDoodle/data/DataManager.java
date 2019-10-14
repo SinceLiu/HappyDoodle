@@ -59,8 +59,9 @@ public class DataManager {
 	 * @return 资源管理对象
 	 */
 	public static DataManager getDataManager(Context context) {
-    	if (mDataManager == null) 
-    		mDataManager = new DataManager(context);
+    	if (mDataManager == null) {
+			mDataManager = new DataManager(context);
+		}
     	//DataManager.context = context;
 		return mDataManager;
 	}
@@ -96,8 +97,9 @@ public class DataManager {
 			//设置是否循环播放
 			mp.setLooping(isLoop);
 			//设置监听器
-			if(completionListener != null)
+			if(completionListener != null) {
 				mp.setOnCompletionListener(completionListener);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,8 +138,9 @@ public class DataManager {
 			//设置是否循环播放
 			mp.setLooping(isLoop);
 			//设置监听器
-			if(completionListener != null)
+			if(completionListener != null) {
 				mp.setOnCompletionListener(completionListener);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

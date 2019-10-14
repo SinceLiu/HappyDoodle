@@ -106,8 +106,9 @@ public class OpusSetActivity extends BaseActivity {
 			}
 		});
 		
-		if(!initViews())
-			return false;
+		if(!initViews()) {
+            return false;
+        }
 		
 		initImageOptions();
 		
@@ -150,8 +151,9 @@ public class OpusSetActivity extends BaseActivity {
 		}
 		else
 		{
-			if(HappyDoodleApp.DEBUG)
-				Log.e(TAG, "sdcard error");
+			if(HappyDoodleApp.DEBUG) {
+                Log.e(TAG, "sdcard error");
+            }
 			Toast toast = Toast.makeText(this, "SD卡不可用，请确保已经正确关闭了usb存储设备", -1);
 			toast.setDuration(Toast.LENGTH_LONG);
 			toast.show();
@@ -159,8 +161,9 @@ public class OpusSetActivity extends BaseActivity {
 		}
 		
 		mOpusFilesPath = getFiles(saveDir);
-		if(mOpusFilesPath == null)
-			return false;
+		if(mOpusFilesPath == null) {
+            return false;
+        }
 		if(mOpusFilesPath.size() == 0)
 		{
 			//Log.i(TAG, "no opus now");
@@ -222,15 +225,18 @@ public class OpusSetActivity extends BaseActivity {
 	public static int calculatePageCount()
 	{
 		int pageCount,files;
-		if(mOpusFilesPath == null)
-			return 0;
+		if(mOpusFilesPath == null) {
+            return 0;
+        }
 		files = mOpusFilesPath.size();
 		//最多显示120个
-		if(files > Constant.MAX_OPUS)
-			files = 120;
+		if(files > Constant.MAX_OPUS) {
+            files = 120;
+        }
 		pageCount = files/Constant.MAX_ITEM_PER_CANVAS;
-		if(files%Constant.MAX_ITEM_PER_CANVAS != 0)
-			pageCount++;
+		if(files%Constant.MAX_ITEM_PER_CANVAS != 0) {
+            pageCount++;
+        }
 		//Log.e(TAG, "files="+files+",pagecount="+pageCount);
 		return pageCount;
 	}
@@ -245,8 +251,9 @@ public class OpusSetActivity extends BaseActivity {
 		if(mRadioGroup.getChildCount() >= 1)
 		{
 			RadioButton radioButton = (RadioButton) mRadioGroup.getChildAt(checkedId);
-			if(!radioButton.isChecked())
-				radioButton.setChecked(true);
+			if(!radioButton.isChecked()) {
+                radioButton.setChecked(true);
+            }
 		}
 	}
 	
@@ -359,8 +366,9 @@ public class OpusSetActivity extends BaseActivity {
 	    	SelectCanvasActivity.resumeBkSnd();
 	        //mImageWorker.setExitTasksEarly(false);
 	        PagerAdapter adapter = mViewPager.getAdapter();
-	        if(adapter != null)
-	        	adapter.notifyDataSetChanged();
+	        if(adapter != null) {
+                adapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -375,8 +383,9 @@ public class OpusSetActivity extends BaseActivity {
     		mMediaPlayer.pause();
     		mIsSndPause = true;
     	}
-    	else
-    		mIsSndPause = false;
+    	else {
+            mIsSndPause = false;
+        }
         
         SelectCanvasActivity.pauseBkSnd();
     }
@@ -387,8 +396,9 @@ public class OpusSetActivity extends BaseActivity {
     	//Log.i(TAG, "------onDestroy------");
     	if(mMediaPlayer!=null)
 		{
-			if(mMediaPlayer.isPlaying())
-	    		mMediaPlayer.stop();
+			if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 	    	mMediaPlayer.release();
 		}
     	
@@ -415,12 +425,14 @@ public class OpusSetActivity extends BaseActivity {
 	    	}
         
 	        SelectCanvasActivity.mIsNeedPauseBkSnd = true;
-	        if(!mHasPause)
-	        	SelectCanvasActivity.resumeBkSnd();
+	        if(!mHasPause) {
+                SelectCanvasActivity.resumeBkSnd();
+            }
 	        //mImageWorker.setExitTasksEarly(false);
 	        PagerAdapter adapter = mViewPager.getAdapter();
-	        if(adapter != null)
-	        	adapter.notifyDataSetChanged();
+	        if(adapter != null) {
+                adapter.notifyDataSetChanged();
+            }
     	}
     	else 
     	{

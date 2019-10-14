@@ -123,8 +123,9 @@ public class ViewPagerAdapter extends PagerAdapter {
 		ViewPager viewPager = ((SelectCanvasActivity)mContext).getViewPager();
 		for (int i = 0; i < viewPager.getChildCount(); i++) {
 			v = viewPager.getChildAt(i);
-			if (isViewFromObject(v, o))
-				return v;
+			if (isViewFromObject(v, o)) {
+                return v;
+            }
 		}
 		return null;
 	}
@@ -166,8 +167,9 @@ public class ViewPagerAdapter extends PagerAdapter {
 //			}
 			((SelectCanvasActivity)mContext).getMyMainLayout().setIsIntercept(true);
 			
-			if(SelectCanvasActivity.mIsForbidOp)
-				return ;
+			if(SelectCanvasActivity.mIsForbidOp) {
+                return ;
+            }
 			
 			((SelectCanvasActivity)mContext).playIconSoundByIndex(Constant.MAX_ITEM_PER_CANVAS*pageIdx+position);
 		}

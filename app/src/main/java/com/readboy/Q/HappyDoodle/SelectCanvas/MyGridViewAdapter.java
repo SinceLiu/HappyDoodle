@@ -125,10 +125,11 @@ public class MyGridViewAdapter extends BaseAdapter {
 
 
 		String dir = "";
-		if(mAge == 0)
+		if(mAge == 0) {
 			dir = "pic/canvas_3-4/";
-		else
+		} else {
 			dir = "pic/canvas_5-6/";
+		}
 		
 		String urlString = "assets://"+dir+(Constant.MAX_ITEM_PER_CANVAS*mPageIndex+position)+".png";
 //		Log.v(TAG, "-------------urlString = "+urlString);

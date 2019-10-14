@@ -145,8 +145,9 @@ public class OpusShowActivity extends BaseActivity {
 	{
 		if(mMediaPlayer!=null)
 		{
-			if(mMediaPlayer.isPlaying())
-				mMediaPlayer.stop();
+			if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 			mMediaPlayer.reset();
 	    	mMediaPlayer.release();
 		}
@@ -346,8 +347,9 @@ public class OpusShowActivity extends BaseActivity {
     		mMediaPlayer.pause();
     		mIsSndPause = true;
     	}
-    	else
-    		mIsSndPause = false;
+    	else {
+            mIsSndPause = false;
+        }
     	
     	if(timer != null){
 			timer.cancel();
@@ -361,8 +363,9 @@ public class OpusShowActivity extends BaseActivity {
     @Override
     public void onHalt() {
     	super.onHalt();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------onStop------");
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onStop------");
+        }
     	//bkAnim.stop();
     	if(mMediaPlayer != null && mMediaPlayer.isPlaying())
     	{
@@ -387,8 +390,9 @@ public class OpusShowActivity extends BaseActivity {
 		
 		if(mMediaPlayer != null)
 		{
-			if(mMediaPlayer.isPlaying())
-	    		mMediaPlayer.stop();
+			if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 	    	mMediaPlayer.release();
 	    	mMediaPlayer = null;
 		}
@@ -407,8 +411,9 @@ public class OpusShowActivity extends BaseActivity {
     	{
     		mHasFocus = true;
     		SelectCanvasActivity.mIsNeedPauseBkSnd = true;
-    		if(!mHasPause)
-    			SelectCanvasActivity.resumeBkSnd();
+    		if(!mHasPause) {
+                SelectCanvasActivity.resumeBkSnd();
+            }
     		if(needStartTimer){
     			onStartTimer();
     		}
@@ -576,10 +581,12 @@ public class OpusShowActivity extends BaseActivity {
 			case MotionEvent.ACTION_DOWN:
 				if(mLastOpusBtn.getVisibility() == View.INVISIBLE || mNextOpusBtn.getVisibility() == View.INVISIBLE)
 				{
-					if(mCurPage != 0)
-						mLastOpusBtn.setVisibility(View.VISIBLE);
-					if(mCurPage != mPageCount-1)
-						mNextOpusBtn.setVisibility(View.VISIBLE);
+					if(mCurPage != 0) {
+                        mLastOpusBtn.setVisibility(View.VISIBLE);
+                    }
+					if(mCurPage != mPageCount-1) {
+                        mNextOpusBtn.setVisibility(View.VISIBLE);
+                    }
 				}
 				
 				break;

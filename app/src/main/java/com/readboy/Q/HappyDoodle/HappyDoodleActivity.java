@@ -82,8 +82,9 @@ public class HappyDoodleActivity extends BaseActivity {
         dataManager = ((HappyDoodleApp)getApplication()).getDataManager();//DataManager.getDataManager(getApplicationContext());
         pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         
-        if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onCreate-----------isScreenOn="+pm.isScreenOn());
+        if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onCreate-----------isScreenOn="+pm.isScreenOn());
+		}
         
         Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
@@ -156,8 +157,6 @@ public class HappyDoodleActivity extends BaseActivity {
 		});
         //printTask();
         mMainHandler = new MyHandler();
-
-
         return true;
     }
 
@@ -188,8 +187,9 @@ public class HappyDoodleActivity extends BaseActivity {
     @Override
     protected void onContinue() {
     	super.onContinue();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onResume mMediaPlayer="+mMediaPlayer+",mIsSndPause="+mIsSndPause+",mHasFocus="+mHasFocus);
+    	if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onResume mMediaPlayer="+mMediaPlayer+",mIsSndPause="+mIsSndPause+",mHasFocus="+mHasFocus);
+		}
     	mHasPause = false;
 		if (mHasFocus) {
 			if (mMediaPlayer != null && mIsSndPause) {
@@ -203,8 +203,9 @@ public class HappyDoodleActivity extends BaseActivity {
 			// if(guideBK.getIsRunning())
 			guideBK.beginAnim();
 
-			if (isNeedEnterNextAct)
+			if (isNeedEnterNextAct) {
 				enterSelectCanvasAct();
+			}
 		}
     }
     
@@ -217,49 +218,58 @@ public class HappyDoodleActivity extends BaseActivity {
     @Override
     protected void onSuspend() {
     	super.onSuspend();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onPause------");
+    	if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onPause------");
+		}
     	mHasPause = true;
 		if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
 			mMediaPlayer.pause();
 			mIsSndPause = true;
 			// Log.e(TAG, "------onPause mMediaPlayer="+mMediaPlayer);
-		} else
+		} else {
 			mIsSndPause = false;
+		}
     	
     	//注：弹出眼保健操界面时，只会来onPause，不会来onStop，眼保健操结束后，会来onResume
-    	if(mTitleView.getIsRunning())
-		mTitleView.stopAnim();
-    	if(guideBK.getIsRunning())
-    		guideBK.stopAnim();
+    	if(mTitleView.getIsRunning()) {
+			mTitleView.stopAnim();
+		}
+    	if(guideBK.getIsRunning()) {
+			guideBK.stopAnim();
+		}
     }
     
     @Override
     public void onHalt() {
     	super.onHalt();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onStop------");
-    	if(mMediaPlayer != null && mMediaPlayer.isPlaying())
-    		mMediaPlayer.pause();
+    	if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onStop------");
+		}
+    	if(mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+			mMediaPlayer.pause();
+		}
     }
     
     @Override
     public void onExit() {
     	super.onExit();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onDestroy------");
+    	if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onDestroy------");
+		}
     	if(mMediaPlayer != null)
     	{
-	    	if(mMediaPlayer.isPlaying())
-	    		mMediaPlayer.stop();
+	    	if(mMediaPlayer.isPlaying()) {
+				mMediaPlayer.stop();
+			}
 	    	mMediaPlayer.release();
     	}
     }
     
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onWindowFocusChanged------hasFocus="+hasFocus);
+    	if(HappyDoodleApp.DEBUG) {
+			Log.e(TAG, "------onWindowFocusChanged------hasFocus="+hasFocus);
+		}
 		if (hasFocus) {
 			mHasFocus = true;
 			{
@@ -269,13 +279,16 @@ public class HappyDoodleActivity extends BaseActivity {
 				}
 
 				// 注：弹出眼保健操界面时，只会来onPause，不会来onStop，眼保健操结束后，会来onResume
-				if (mTitleView.getIsRunning())
+				if (mTitleView.getIsRunning()) {
 					mTitleView.beginAnim();
-				if (guideBK.getIsRunning())
+				}
+				if (guideBK.getIsRunning()) {
 					guideBK.beginAnim();
+				}
 
-				if (isNeedEnterNextAct)
+				if (isNeedEnterNextAct) {
 					enterSelectCanvasAct();
+				}
 			}
 		} else {
 			mHasFocus = false;
@@ -305,7 +318,9 @@ public class HappyDoodleActivity extends BaseActivity {
     public void playEnterSound() {
     	
     	if(mMediaPlayer == null)//避免GuideBK中多次调用
-    		mMediaPlayer = DataManager.playSound("nh_057.ogg", false, new MyOnCompleteListenner(1));
+		{
+			mMediaPlayer = DataManager.playSound("nh_057.ogg", false, new MyOnCompleteListenner(1));
+		}
 	}
     
     /**
@@ -315,8 +330,9 @@ public class HappyDoodleActivity extends BaseActivity {
     	
     	if(mMediaPlayer != null)
 		{
-			if(mMediaPlayer.isPlaying())
+			if(mMediaPlayer.isPlaying()) {
 				mMediaPlayer.stop();
+			}
 			mMediaPlayer.reset();
 	    	mMediaPlayer.release();
 		}

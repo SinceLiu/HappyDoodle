@@ -303,8 +303,9 @@ public class DoodleActivity extends BaseActivity {
 			// "+Utils.getUsableSpace(sdCardDir)+"---min =
 			// "+Constant.MIN_DISK_SPACE);
 			if (Utils.getUsableSpace(sdCardDir) < Constant.MIN_DISK_SPACE) {
-				if (HappyDoodleApp.DEBUG)
-					Log.e(TAG, "DISK SPACE not enough");
+				if (HappyDoodleApp.DEBUG) {
+                    Log.e(TAG, "DISK SPACE not enough");
+                }
 				if (apMode == Constant.MODE_NORMAL) {
 					ToastUtils.show(this, "小朋友，SD卡空间不足10M了，作品有可能保存不了噢，请删掉一些文件后再来吧！", Toast.LENGTH_LONG);
 				}
@@ -401,8 +402,9 @@ public class DoodleActivity extends BaseActivity {
 					dismissDialog();
 					if (btnName.equals("yes_btn")) {
 						if (!savaFile()) // 保存失败则不进操作
-							return;
-						else {
+                        {
+                            return;
+                        } else {
 							Reward.pointScore(DoodleActivity.this, NORMAL_POINT);
 						}
 					}
@@ -465,8 +467,9 @@ public class DoodleActivity extends BaseActivity {
 						finish();
 					} else if (btnName.equals("no_btn")) {
 						if (mMediaPlayer != null) {
-							if (mMediaPlayer.isPlaying())
-								mMediaPlayer.stop();
+							if (mMediaPlayer.isPlaying()) {
+                                mMediaPlayer.stop();
+                            }
 							mMediaPlayer.reset();
 							mMediaPlayer.release();
 							mMediaPlayer = null;
@@ -501,10 +504,11 @@ public class DoodleActivity extends BaseActivity {
 
 	private String getCanvasDirByAge(int age) {
 		String dir = "";
-		if (mAge == 0)
-			dir = "pic/canvas_3-4/";
-		else
-			dir = "pic/canvas_5-6/";
+		if (mAge == 0) {
+            dir = "pic/canvas_3-4/";
+        } else {
+            dir = "pic/canvas_5-6/";
+        }
 		// Log.e(TAG, "path="+dir);
 		return dir;
 	}
@@ -624,8 +628,9 @@ public class DoodleActivity extends BaseActivity {
 	 */
 	private void playHintSnd() {
 		if (mMediaPlayer != null) {
-			if (mMediaPlayer.isPlaying())
-				mMediaPlayer.stop();
+			if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 			mMediaPlayer.reset();
 			mMediaPlayer.release();
 		}
@@ -663,8 +668,9 @@ public class DoodleActivity extends BaseActivity {
 	 */
 	private void playSnd(String soundPath, boolean isLoop, OnCompletionListener completionListener) {
 		if (mMediaPlayer != null) {
-			if (mMediaPlayer.isPlaying())
-				mMediaPlayer.stop();
+			if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 			mMediaPlayer.reset();
 			mMediaPlayer.release();
 		}
@@ -714,15 +720,17 @@ public class DoodleActivity extends BaseActivity {
 		// Log.e(TAG, "event="+event.getFlags()+",isCanceled="+isCanceled);
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_BACK:
-			if (isCanceled)
-				return true;
+			if (isCanceled) {
+                return true;
+            }
 			mIsNeedSave = mDoodleView.isDraw();
 			if (mIsNeedSave) {
 				mOperation = OPERATION.DOWN_CLOSE_BTN;
 				showCustomDialog();
 				return true;// 已经处理了，不再转发
-			} else
-				break;
+			} else {
+                break;
+            }
 
 		default:
 			break;
@@ -744,8 +752,9 @@ public class DoodleActivity extends BaseActivity {
 		super.onContinue();
 		initDialog();
 
-		if (HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onResume------");
+		if (HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onResume------");
+        }
 		mHasPause = false;
 		SelectCanvasActivity.mIsNeedPauseBkSnd = true;
 		if (mHasFocus) {
@@ -760,8 +769,9 @@ public class DoodleActivity extends BaseActivity {
 	@Override
 	public void onReinit() {
 		super.onReinit();
-		if (HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onRestart------");
+		if (HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onRestart------");
+        }
 		// bkAnim.start();
 		// launchBK.beginAnim();
 		if (mIsSndPause && mMediaPlayer != null) {
@@ -776,14 +786,16 @@ public class DoodleActivity extends BaseActivity {
 	@Override
 	protected void onSuspend() {
 		super.onSuspend();
-		if (HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onPause------");
+		if (HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onPause------");
+        }
 		mHasPause = true;
 		if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
 			mMediaPlayer.pause();
 			mIsSndPause = true;
-		} else
-			mIsSndPause = false;
+		} else {
+            mIsSndPause = false;
+        }
 
 		SelectCanvasActivity.pauseBkSnd();
 		closeTimer();
@@ -795,8 +807,9 @@ public class DoodleActivity extends BaseActivity {
 	@Override
 	public void onHalt() {
 		super.onHalt();
-		if (HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onStop------");
+		if (HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onStop------");
+        }
 		// bkAnim.stop();
 		if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
 			mMediaPlayer.pause();
@@ -807,11 +820,13 @@ public class DoodleActivity extends BaseActivity {
 	@Override
 	public void onExit() {
 		super.onExit();
-		if (HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onDestroy------");
+		if (HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onDestroy------");
+        }
 		if (mMediaPlayer != null) {
-			if (mMediaPlayer.isPlaying())
-				mMediaPlayer.stop();
+			if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 			mMediaPlayer.release();
 			mMediaPlayer = null;
 		}
@@ -848,15 +863,17 @@ public class DoodleActivity extends BaseActivity {
 
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
-		if (HappyDoodleApp.DEBUG)
-			Log.e(TAG, "------onWindowFocusChanged------hasFocus=" + hasFocus);
+		if (HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "------onWindowFocusChanged------hasFocus=" + hasFocus);
+        }
 		if (hasFocus) {
 			mIsForbidOp = false;
 			mHasFocus = true;
 
 			SelectCanvasActivity.mIsNeedPauseBkSnd = true;
-			if (!mHasPause)
-				SelectCanvasActivity.resumeBkSnd();
+			if (!mHasPause) {
+                SelectCanvasActivity.resumeBkSnd();
+            }
 			onStartTimer();
 		} else {
 			mIsForbidOp = true;
@@ -998,8 +1015,9 @@ public class DoodleActivity extends BaseActivity {
 				// "+Constant.MIN_DISK_SPACE);
 
 				if (Utils.getUsableSpace(tempFile) < Constant.MIN_DISK_SPACE) {
-					if (HappyDoodleApp.DEBUG)
-						Log.e(TAG, "DISK SPACE not enough to save");
+					if (HappyDoodleApp.DEBUG) {
+                        Log.e(TAG, "DISK SPACE not enough to save");
+                    }
 					if (apMode == Constant.MODE_BABYPLAN) {
 						ToastUtils.show(this, "小朋友，SD卡空间不足10M，不能上传图片", Toast.LENGTH_LONG);
 					} else if (apMode == Constant.MODE_SILKWORM) {
@@ -1032,8 +1050,9 @@ public class DoodleActivity extends BaseActivity {
 				}
 
 				if (path == null || mOpusFilesPath.size() >= Constant.MAX_OPUS) {
-					if (HappyDoodleApp.DEBUG)
-						Log.e(TAG, "out of capacity");
+					if (HappyDoodleApp.DEBUG) {
+                        Log.e(TAG, "out of capacity");
+                    }
 					ToastUtils.show(this, "小朋友，作品太多了，不能保存了，请删掉一些后再来吧！", Toast.LENGTH_LONG);
 					return false;
 				}
@@ -1054,16 +1073,18 @@ public class DoodleActivity extends BaseActivity {
 				}
 				bitmap.compress(CompressFormat.PNG, 0, ios);
 				ios.close();
-				if (bitmap != null && bitmap.isRecycled())
-					bitmap.recycle();
+				if (bitmap != null && bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
 				mOpusFilesPath.add(path);
 				/*
 				 * Utils.requestScanFileForAdd(this,saveFile);//已将保存目录隐藏，
 				 * 所以不添加到数据库了 Log.e(TAG, "scanFile end");
 				 */
 			} else {
-				if (HappyDoodleApp.DEBUG)
-					Log.e(TAG, "sdcard error");
+				if (HappyDoodleApp.DEBUG) {
+                    Log.e(TAG, "sdcard error");
+                }
 				if (apMode == Constant.MODE_NORMAL) {
 					ToastUtils.show(this, "SD卡不可用，保存失败，请确保已经正确关闭了usb存储设备", Toast.LENGTH_LONG);
 				} else if (apMode == Constant.MODE_BABYPLAN) {
@@ -1124,8 +1145,9 @@ public class DoodleActivity extends BaseActivity {
 		/*
 		 * setCanvasImgSrc(bitmapCache); mProgressDialog.dismiss();
 		 */
-		if (!ret)
-			bitmapCache = bitmapCopy;// .copy(Bitmap.Config.ARGB_8888, true);
+		if (!ret) {
+            bitmapCache = bitmapCopy;// .copy(Bitmap.Config.ARGB_8888, true);
+        }
 		if (bitmapCache != null) {
 			mMainHandler.sendMessage(mMainHandler.obtainMessage(MSG_DOODLE_FINISH, bitmapCache));
 		}
@@ -1355,8 +1377,9 @@ public class DoodleActivity extends BaseActivity {
 			} else if (v == mShowBtn) // 展示按钮
 			{
 				if (savaFile()) {
-					if (mIsNeedSave)
-						Reward.pointScore(DoodleActivity.this, SHOW_POINT); // 展示加分
+					if (mIsNeedSave) {
+                        Reward.pointScore(DoodleActivity.this, SHOW_POINT); // 展示加分
+                    }
 					Intent intent = new Intent(DoodleActivity.this, OpusShowActivity.class);
 					intent.putExtra("apMode", apMode);
 					intent.putExtra("savePicPath", savePicPath);
@@ -1414,8 +1437,9 @@ public class DoodleActivity extends BaseActivity {
 				if (curPage == 0) {
 					// lastPage = Constant.DOODLE_COLOR_PAGES-1;
 					return;
-				} else
-					lastPage = --curPage;
+				} else {
+                    lastPage = --curPage;
+                }
 				// Log.e(TAG, "lastPage="+lastPage);
 				setCurrentColorPage(lastPage);
 			} else if (v == mNextColorPageBtn) {
@@ -1425,8 +1449,9 @@ public class DoodleActivity extends BaseActivity {
 				if (curPage == Constant.DOODLE_COLOR_PAGES - 1) {
 					// nextPage = 0;
 					return;
-				} else
-					nextPage = ++curPage;
+				} else {
+                    nextPage = ++curPage;
+                }
 				// Log.e(TAG, "nextPage="+nextPage);
 				setCurrentColorPage(nextPage);
 			} else if (v == mouseView) {

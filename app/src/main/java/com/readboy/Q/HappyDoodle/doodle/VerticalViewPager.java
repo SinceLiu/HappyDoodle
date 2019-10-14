@@ -721,7 +721,9 @@ public class VerticalViewPager extends ViewGroup {
      */
     public void setPageMarginDrawable(Drawable d) {
         mMarginDrawable = d;
-        if (d != null) refreshDrawableState();
+        if (d != null) {
+            refreshDrawableState();
+        }
         setWillNotDraw(d == null);
         invalidate();
     }
@@ -914,7 +916,9 @@ public class VerticalViewPager extends ViewGroup {
         // fling to a new position until we have finished the scroll to
         // that position, avoiding glitches from happening at that point.
         if (mPopulatePending) {
-            if (DEBUG) Log.i(TAG, "populate is pending, skipping for now...");
+            if (DEBUG) {
+                Log.i(TAG, "populate is pending, skipping for now...");
+            }
             return;
         } /* end of if */
 
@@ -932,14 +936,18 @@ public class VerticalViewPager extends ViewGroup {
         final int N = mAdapter.getCount();
         final int endPos = Math.min(N-1, mCurItem + pageLimit);
 
-        if (DEBUG) Log.v(TAG, "populating: startPos=" + startPos + " endPos=" + endPos);
+        if (DEBUG) {
+            Log.v(TAG, "populating: startPos=" + startPos + " endPos=" + endPos);
+        }
 
         // Add and remove pages in the existing list.
         int lastPos = -1;
         for (int i=0; i<mItems.size(); i++) {
             ItemInfo ii = mItems.get(i);
             if ((ii.position < startPos || ii.position > endPos) && !ii.scrolling) {
-                if (DEBUG) Log.i(TAG, "removing: " + ii.position + " @ " + i);
+                if (DEBUG) {
+                    Log.i(TAG, "removing: " + ii.position + " @ " + i);
+                }
                 mItems.remove(i);
                 i--;
                 mAdapter.destroyItem(this, ii.position, ii.object);
@@ -952,7 +960,9 @@ public class VerticalViewPager extends ViewGroup {
                     lastPos = startPos;
                 } /* end of if */
                 while (lastPos <= endPos && lastPos < ii.position) {
-                    if (DEBUG) Log.i(TAG, "inserting: " + lastPos + " @ " + i);
+                    if (DEBUG) {
+                        Log.i(TAG, "inserting: " + lastPos + " @ " + i);
+                    }
                     addNewItem(lastPos, i);
                     lastPos++;
                     i++;
@@ -967,7 +977,9 @@ public class VerticalViewPager extends ViewGroup {
             lastPos++;
             lastPos = lastPos > startPos ? lastPos : startPos;
             while (lastPos <= endPos) {
-                if (DEBUG) Log.i(TAG, "appending: " + lastPos);
+                if (DEBUG) {
+                    Log.i(TAG, "appending: " + lastPos);
+                }
                 addNewItem(lastPos, -1);
                 lastPos++;
             } /* end of while */
@@ -1215,8 +1227,10 @@ public class VerticalViewPager extends ViewGroup {
         for (int i = 0; i < size; ++i) {
             final View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
-                if (DEBUG) Log.v(TAG, "Measuring #" + i + " " + child
-                        + ": " + mChildWidthMeasureSpec);
+                if (DEBUG) {
+                    Log.v(TAG, "Measuring #" + i + " " + child
+                            + ": " + mChildWidthMeasureSpec);
+                }
 
                 final LayoutParams lp = (LayoutParams) child.getLayoutParams();
                 if (lp == null || !lp.isDecor) {
@@ -1344,9 +1358,11 @@ public class VerticalViewPager extends ViewGroup {
                     childLeft = paddingLeft;
                     childTop = paddingTop +toff;
                             
-                    if (DEBUG) Log.v(TAG, "Positioning #" + i + " " + child + " f=" + ii.object
-                            + ":" + childLeft + "," + childTop + " " + child.getMeasuredWidth()
-                            + "x" + child.getMeasuredHeight());
+                    if (DEBUG) {
+                        Log.v(TAG, "Positioning #" + i + " " + child + " f=" + ii.object
+                                + ":" + childLeft + "," + childTop + " " + child.getMeasuredWidth()
+                                + "x" + child.getMeasuredHeight());
+                    }
                       child.layout(childLeft, childTop,
                               childLeft + child.getMeasuredWidth(),
                               childTop + child.getMeasuredHeight());
@@ -1363,10 +1379,14 @@ public class VerticalViewPager extends ViewGroup {
 
     @Override
     public void computeScroll() {
-        if (DEBUG) Log.i(TAG, "computeScroll: finished=" + mScroller.isFinished());
+        if (DEBUG) {
+            Log.i(TAG, "computeScroll: finished=" + mScroller.isFinished());
+        }
         if (!mScroller.isFinished()) {
             if (mScroller.computeScrollOffset()) {
-                if (DEBUG) Log.i(TAG, "computeScroll: still scrolling");
+                if (DEBUG) {
+                    Log.i(TAG, "computeScroll: still scrolling");
+                }
                 int oldX = getScrollX();
                 int oldY = getScrollY();
                 int x = mScroller.getCurrX();
@@ -1428,7 +1448,9 @@ public class VerticalViewPager extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 final View child = getChildAt(i);
                 final LayoutParams lp = (LayoutParams) child.getLayoutParams();
-                if (!lp.isDecor) continue;
+                if (!lp.isDecor) {
+                    continue;
+                }
 
                 final int vgrav = lp.gravity & Gravity.VERTICAL_GRAVITY_MASK;
                 int childTop = 0;
@@ -1516,8 +1538,9 @@ public class VerticalViewPager extends ViewGroup {
 		if (action == MotionEvent.ACTION_CANCEL
 				|| action == MotionEvent.ACTION_UP) {
 			// Release the drag.
-			if (DEBUG)
-				Log.v(TAG, "Intercept done!");
+			if (DEBUG) {
+                Log.v(TAG, "Intercept done!");
+            }
 			mIsBeingDragged = false;
 			mIsUnableToDrag = false;
 			mActivePointerId = INVALID_POINTER;
@@ -1532,13 +1555,15 @@ public class VerticalViewPager extends ViewGroup {
 		// are dragging.
 		if (action != MotionEvent.ACTION_DOWN) {
 			if (mIsBeingDragged) {
-				if (DEBUG)
-					Log.v(TAG, "Intercept returning true!");
+				if (DEBUG) {
+                    Log.v(TAG, "Intercept returning true!");
+                }
 				return true;
 			} /* end of if */
 			if (mIsUnableToDrag) {
-				if (DEBUG)
-					Log.v(TAG, "Intercept returning false!");
+				if (DEBUG) {
+                    Log.v(TAG, "Intercept returning false!");
+                }
 				return false;
 			} /* end of if */
 		} /* end of if */
@@ -1570,9 +1595,10 @@ public class VerticalViewPager extends ViewGroup {
 			final float dy = y - mLastMotionY;
 			final float yDiff = Math.abs(dy);
 
-			if (DEBUG)
-				Log.v(TAG, "Moved x to " + x + "," + y + " diff=" + xDiff + ","
-						+ yDiff);
+			if (DEBUG) {
+                Log.v(TAG, "Moved x to " + x + "," + y + " diff=" + xDiff + ","
+                        + yDiff);
+            }
 
 			if (canScroll(this, false, (int) dy, (int) x, (int) y)) {
 				// Nested view has scrollable area under this point. Let it be
@@ -1582,8 +1608,9 @@ public class VerticalViewPager extends ViewGroup {
 				return false;
 			} /* end of if */
 			if (yDiff > mTouchSlop && yDiff > xDiff) {
-				if (DEBUG)
-					Log.v(TAG, "Starting drag!");
+				if (DEBUG) {
+                    Log.v(TAG, "Starting drag!");
+                }
 				mIsBeingDragged = true;
 				setScrollState(SCROLL_STATE_DRAGGING);
 				mLastMotionY = y;
@@ -1594,8 +1621,9 @@ public class VerticalViewPager extends ViewGroup {
 					// direction to be counted as a drag... abort
 					// any attempt to drag vertically, to work correctly
 					// with children that have scrolling containers.
-					if (DEBUG)
-						Log.v(TAG, "Starting unable to drag!");
+					if (DEBUG) {
+                        Log.v(TAG, "Starting unable to drag!");
+                    }
 					mIsUnableToDrag = true;
 				} /* end of if */
 			} /* end of if */
@@ -1622,10 +1650,11 @@ public class VerticalViewPager extends ViewGroup {
 				mIsUnableToDrag = false;
 			} /* end of if */
 
-			if (DEBUG)
-				Log.v(TAG, "Down at " + mLastMotionX + "," + mLastMotionY
-						+ " mIsBeingDragged=" + mIsBeingDragged
-						+ "mIsUnableToDrag=" + mIsUnableToDrag);
+			if (DEBUG) {
+                Log.v(TAG, "Down at " + mLastMotionX + "," + mLastMotionY
+                        + " mIsBeingDragged=" + mIsBeingDragged
+                        + "mIsUnableToDrag=" + mIsUnableToDrag);
+            }
 			break;
 		} /* end of case */
 
@@ -1700,9 +1729,13 @@ public class VerticalViewPager extends ViewGroup {
                     final float xDiff = Math.abs(x - mLastMotionX);
                     final float y = MotionEventCompat.getY(ev, pointerIndex);
                     final float yDiff = Math.abs(y - mLastMotionY);
-                    if (DEBUG) Log.v(TAG, "Moved x to " + x + "," + y + " diff=" + xDiff + "," + yDiff);
+                    if (DEBUG) {
+                        Log.v(TAG, "Moved x to " + x + "," + y + " diff=" + xDiff + "," + yDiff);
+                    }
                     if (yDiff > mTouchSlop && yDiff > xDiff) {
-                        if (DEBUG) Log.v(TAG, "Starting drag!");
+                        if (DEBUG) {
+                            Log.v(TAG, "Starting drag!");
+                        }
                         mIsBeingDragged = true;
                         mLastMotionY = y;
                         setScrollState(SCROLL_STATE_DRAGGING);
@@ -2135,7 +2168,9 @@ public class VerticalViewPager extends ViewGroup {
      */
     public boolean arrowScroll(int direction) {
         View currentFocused = findFocus();
-        if (currentFocused == this) currentFocused = null;
+        if (currentFocused == this) {
+            currentFocused = null;
+        }
 
         boolean handled = false;
 

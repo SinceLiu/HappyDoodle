@@ -107,8 +107,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 		{
 			setMeasuredDimension(bm.getWidth(), bm.getHeight());
 		}
-		else
+		else {
 			super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		}
 	}
 
 	@Override
@@ -148,8 +149,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 		Log.e(TAG, "clear+++++++++ 222222222222222"); 
 		paint2.setXfermode(new PorterDuffXfermode(Mode.SRC));*/
 		//Log.e(TAG, "clear+++++++++ 333333333333333 bm="+bm); 
-		if (bm != null && !bm.isRecycled())
+		if (bm != null && !bm.isRecycled()) {
 			bm.recycle();
+		}
 		//Log.e(TAG, "clear+++++++++ 444444444444 w,h="+canvaswidth+","+canvasheight); 
 		//bm = Bitmap.createBitmap(canvaswidth, canvasheight,
 		//		Bitmap.Config.ARGB_8888);
@@ -170,8 +172,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 	 */
 	public void setTemp(Bitmap temp) {
 		//Log.e(TAG, "temp="+temp);
-		if (this.temp != null && !this.temp.isRecycled())
+		if (this.temp != null && !this.temp.isRecycled()) {
 			this.temp.recycle();
+		}
 		//Log.e(TAG, "setTemp++++++++++");
 		float width = HappyDoodleApp.getScreenWidth();
 		if (width >= 2560&&width!=2736) {
@@ -208,8 +211,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 	}
 
 	public void setBm(Bitmap bm) {
-		if (this.bm != null && !this.bm.isRecycled())
+		if (this.bm != null && !this.bm.isRecycled()) {
 			this.bm.recycle();
+		}
 
 		this.bm = bm;
 
@@ -240,8 +244,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 	 * @param temp2
 	 */
 	public void setTemp2(Bitmap temp2) {
-		if (this.temp2 != null && !this.temp2.isRecycled())
+		if (this.temp2 != null && !this.temp2.isRecycled()) {
 			this.temp2.recycle();
+		}
 
 		float width = HappyDoodleApp.getScreenWidth();
 		if (width >= 2560&&width!=2736) {
@@ -272,14 +277,18 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 	 * 回收图片
 	 */
 	public void recycleBitmap() {
-		if (bm != null && !bm.isRecycled())
+		if (bm != null && !bm.isRecycled()) {
 			bm.recycle();
-		if (temp != null && !temp.isRecycled())
+		}
+		if (temp != null && !temp.isRecycled()) {
 			temp.recycle();
-		if (temp1 != null && !temp1.isRecycled())
+		}
+		if (temp1 != null && !temp1.isRecycled()) {
 			temp1.recycle();
-		if (temp2 != null && !temp2.isRecycled())
+		}
+		if (temp2 != null && !temp2.isRecycled()) {
 			temp2.recycle();
+		}
 	}
 
 	// @Override
@@ -307,12 +316,14 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 		
 		if (e.getAction() == MotionEvent.ACTION_DOWN
 				&& bm.getPixel(x, y) != color_line) {
-			if (temp1 != null && temp1.isRecycled())
+			if (temp1 != null && temp1.isRecycled()) {
 				temp1.recycle();
+			}
 			temp1 = Bitmap.createBitmap(bm);
 			fillarea(x, y, color);
-			if(HappyDoodleApp.DEBUG)
+			if(HappyDoodleApp.DEBUG) {
 				Log.i(TAG, "isOutOfArea=" + isOutOfArea);
+			}
 			if (isOutOfArea) 
 			{
 				setBm(Bitmap.createBitmap(temp1));
@@ -341,8 +352,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 		//Log.e(TAG, "curcolor=" + curcolor);
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				if (bm.getPixel(j, i) != curcolor)
+				if (bm.getPixel(j, i) != curcolor) {
 					bm.setPixel(j, i, color_line);
+				}
 
 			}
 		}
@@ -389,8 +401,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 		int leftx = x, rightx = x;
 		while (leftx > 1) {
 			leftx--;
-			if (bm.getPixel(leftx, y) != curcolor)
+			if (bm.getPixel(leftx, y) != curcolor) {
 				break;
+			}
 			bm.setPixel(leftx, y, color);
 			// canvas.drawPoint(leftx, y, paint);
 		}
@@ -399,12 +412,14 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 			return;
 		}
 
-		if (leftx == 1)
+		if (leftx == 1) {
 			bm.setPixel(leftx - 1, y, color);
+		}
 		while (rightx < w - 1) {
 			rightx++;
-			if (bm.getPixel(rightx, y) != curcolor)
+			if (bm.getPixel(rightx, y) != curcolor) {
 				break;
+			}
 			bm.setPixel(rightx, y, color);
 			// canvas.drawPoint(rightx, y, paint);
 		}

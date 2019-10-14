@@ -105,8 +105,12 @@ public class FloodFillAlgorithm
 	 */
 	public void floodFillScanLine(int x, int y, int newColor, int oldColor)
 	{
-		if(oldColor == newColor) return;
-	    if(getColor(x, y) != oldColor) return;
+		if(oldColor == newColor) {
+            return;
+        }
+	    if(getColor(x, y) != oldColor) {
+            return;
+        }
 	      
 	    int y1;
 	    
@@ -190,22 +194,34 @@ public class FloodFillAlgorithm
 	    while(true)
 	    {    
 	    	x = popx();
-	    	if(x == -1) return true;
+	    	if(x == -1) {
+                return true;
+            }
 	    	y = popy();
 	        y1 = y;
-	        while(y1 >= 0 && getColor(x, y1) == oldColor) y1--; // go to line top/bottom
+	        while(y1 >= 0 && getColor(x, y1) == oldColor) {
+                y1--; // go to line top/bottom
+            }
 	        
-	        if(y1 == -1 || y1 == height) return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+	        if(y1 == -1 || y1 == height) {
+                return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+            }
 	        x1 = x;
-	        while(x1 >= 0 && getColor(x1, y) == oldColor) x1--; // go to line left/right
+	        while(x1 >= 0 && getColor(x1, y) == oldColor) {
+                x1--; // go to line left/right
+            }
 	        
-	        if(x1 == 0 || x1 == width-1) return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+	        if(x1 == 0 || x1 == width-1) {
+                return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+            }
 	        
 	        y1++; // start from line starting point pixel
 	        spanLeft = spanRight = false;
 	        while(y1 < height && getColor(x, y1) == oldColor)//每次填充一条竖线
 	        {
-	        	if(y1 == height-1) return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+	        	if(y1 == height-1) {
+                    return false;//如果超过图片边界，则表示没有封闭区域，直接返回不填色
+                }
 	        	
 	        	setColor(x, y1, newColor);
 	            if(!spanLeft && x > 0 && getColor(x - 1, y1) == oldColor)// just keep left line once in the stack
@@ -255,10 +271,11 @@ public class FloodFillAlgorithm
 	}
 	
 	final int popx() {
-		if (stackSize==0)
-			return -1;
-		else
+		if (stackSize==0) {
+            return -1;
+        } else {
             return xstack[stackSize-1];
+        }
 	}
 
 	final int popy() {

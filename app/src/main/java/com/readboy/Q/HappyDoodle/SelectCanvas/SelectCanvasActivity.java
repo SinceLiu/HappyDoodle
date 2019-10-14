@@ -103,8 +103,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	@Override
 	public boolean onInit() {
 		Bundle savedInstanceState = getSavedInstanceState();
-		if(HappyDoodleApp.DEBUG)
-			Log.e(TAG, "onCreate savedInstanceState="+savedInstanceState);
+		if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "onCreate savedInstanceState="+savedInstanceState);
+        }
 		setContentView(R.layout.select_canvas);
 		ActivityManagerUtil.getInstance().addActivity(this);//将该activity加入activity管理类中
 		pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -231,12 +232,13 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	{
 		int age;
 		age = getDataFromDb("ChildAge",3);
-		if(age <= 3)
-			age = 0;
-		else if(age <= 5)
-			age = 1;
-		else if(age <= 7)
-			age = 2;
+		if(age <= 3) {
+            age = 0;
+        } else if(age <= 5) {
+            age = 1;
+        } else if(age <= 7) {
+            age = 2;
+        }
 		return age;
 	}
 	
@@ -268,8 +270,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	{
 		int pageCount;
 		pageCount = Constant.TOTAL_CANVAS_EACH_AGE[mAge]/Constant.MAX_ITEM_PER_CANVAS;
-		if(Constant.TOTAL_CANVAS_EACH_AGE[mAge]%Constant.MAX_ITEM_PER_CANVAS != 0)
-			pageCount++;
+		if(Constant.TOTAL_CANVAS_EACH_AGE[mAge]%Constant.MAX_ITEM_PER_CANVAS != 0) {
+            pageCount++;
+        }
 		return pageCount;
 	}
 	
@@ -279,8 +282,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 		if(mRadioGroup.getChildCount() > 1)
 		{
 			RadioButton radioButton = (RadioButton) mRadioGroup.getChildAt(checkedId);
-			if(!radioButton.isChecked())
-				radioButton.setChecked(true);
+			if(!radioButton.isChecked()) {
+                radioButton.setChecked(true);
+            }
 		}
 	}
 	
@@ -314,8 +318,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	{
 		if(mMediaPlayer!=null)
 		{
-			if(mMediaPlayer.isPlaying())
-				mMediaPlayer.stop();
+			if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 			mMediaPlayer.reset();
 	    	mMediaPlayer.release();
 		}
@@ -323,8 +328,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 		mIconIndex = index;
 		String path = "icon/"+ ((mAge == 0) ? "0/":"1/") + index+".ogg";
 		mMediaPlayer = DataManager.playSound(path, false, new MyOnCompleteListenner(2));
-		if(HappyDoodleApp.DEBUG)
-			Log.e(TAG, "------playIconSoundByIndex------mIsSndPause="+mIsSndPause+",mHasPause="+mHasPause);
+		if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "------playIconSoundByIndex------mIsSndPause="+mIsSndPause+",mHasPause="+mHasPause);
+        }
 		if(mIsSndPause || !mHasFocus || mHasPause)
 		{
 			mMediaPlayer.pause();
@@ -347,10 +353,12 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	
 	public static void resumeBkSnd()
 	{
-		if(HappyDoodleApp.DEBUG)
-			Log.e(TAG, "======resumeBkSnd mIsBkSndPause="+mIsBkSndPause);
-		if(mMpBk == null)
-			playBackSound();
+		if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "======resumeBkSnd mIsBkSndPause="+mIsBkSndPause);
+        }
+		if(mMpBk == null) {
+            playBackSound();
+        }
 		
 		if(mIsBkSndPause)
     	{
@@ -380,8 +388,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
     protected void onContinue() {
     	super.onContinue();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------onResume------mHasFocus="+mHasFocus);
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onResume------mHasFocus="+mHasFocus);
+        }
     	mHasPause = false;
     	if(mHasFocus)
     	{
@@ -394,8 +403,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 	    	
 	    	resumeBkSnd();
 	    	
-	    	if(isNeedEnterNextAct)
-	    		enterOpusSetAct();
+	    	if(isNeedEnterNextAct) {
+                enterOpusSetAct();
+            }
     	}
     }
     
@@ -405,8 +415,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
     public void onReinit() {
     	super.onReinit();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------onRestart------");
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onRestart------");
+        }
     	//bkAnim.start();
     	//launchBK.beginAnim();
     	/*if(mIsSndPause)
@@ -422,16 +433,18 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
     protected void onSuspend() {
     	super.onSuspend();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------onPause------mIsNeedPauseBkSnd="+mIsNeedPauseBkSnd);
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onPause------mIsNeedPauseBkSnd="+mIsNeedPauseBkSnd);
+        }
     	mHasPause = true;
     	if(mMediaPlayer!=null && mMediaPlayer.isPlaying())
     	{
     		mMediaPlayer.pause();
     		mIsSndPause = true;
     	}
-    	else
-    		mIsSndPause = false;
+    	else {
+            mIsSndPause = false;
+        }
     	
     	if(mIsNeedPauseBkSnd && mMpBk.isPlaying())
     	{
@@ -448,8 +461,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
     public void onHalt() {
     	super.onHalt();
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------onStop------");
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onStop------");
+        }
     	//bkAnim.stop();
     	if(mMediaPlayer!=null && mMediaPlayer.isPlaying())
     	{
@@ -461,20 +475,23 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     
     private void releaseRes() 
     {
-    	if(HappyDoodleApp.DEBUG)
-    		Log.i(TAG, "------releaseRes------");
+    	if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------releaseRes------");
+        }
     	if(mMediaPlayer!=null)
 		{
-			if(mMediaPlayer.isPlaying())
-	    		mMediaPlayer.stop();
+			if(mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
 	    	mMediaPlayer.release();
 	    	mMediaPlayer = null;
 		}
     	
     	if(mMpBk != null)
     	{
-	    	if(mMpBk.isPlaying())
-	    		mMpBk.stop();
+	    	if(mMpBk.isPlaying()) {
+                mMpBk.stop();
+            }
 	    	mMpBk.release();
 	    	mMpBk = null;
     	}
@@ -492,8 +509,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
     public void onExit() {
     	super.onExit();
-		if(HappyDoodleApp.DEBUG)
-			Log.i(TAG, "------onDestroy------");
+		if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "------onDestroy------");
+        }
 		releaseRes();
 		/*if(mMediaPlayer!=null)
 		{
@@ -512,8 +530,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "==========onSaveInstanceState===========");
+    	if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "==========onSaveInstanceState===========");
+        }
     	outState.putInt(SAVE_KEY_AGE, mAge);
     	outState.putInt(SAVE_KEY_CURPAGE, mCurPage);
     	outState.putInt(SAVE_KEY_APMODE, apMode);
@@ -522,8 +541,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onWindowFocusChanged------hasFocus="+hasFocus);
+    	if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "------onWindowFocusChanged------hasFocus="+hasFocus);
+        }
     	if(hasFocus)
     	{
     		myMainLayout.setIsIntercept(false);
@@ -535,11 +555,13 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     	    		mMediaPlayer.start();
     	        	mIsSndPause = false;
     	    	}
-    	    	if(!mHasPause)
-    	    		resumeBkSnd();
+    	    	if(!mHasPause) {
+                    resumeBkSnd();
+                }
     	    	
-    	    	if(isNeedEnterNextAct)
-    	    		enterOpusSetAct();
+    	    	if(isNeedEnterNextAct) {
+                    enterOpusSetAct();
+                }
     		}
     	}
     	else
@@ -553,8 +575,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     @Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		//return super.onKeyUp(keyCode, event);
-    	if(HappyDoodleApp.DEBUG)
-    		Log.e(TAG, "------onKeyUp------keyCode="+keyCode);
+    	if(HappyDoodleApp.DEBUG) {
+            Log.e(TAG, "------onKeyUp------keyCode="+keyCode);
+        }
     	if(!mHasFocus || mIsForbidOp)//在还没获得焦点前或不允许有操作了，不响应按键操作
     	{
     		Log.e(TAG, "------onKeyUp------mHasFocus="+mHasFocus+",mIsForbidOp="+mIsForbidOp);
@@ -689,8 +712,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 		public void onClick(View v) {
 			if(mIsForbidOp)
 			{
-				if(HappyDoodleApp.DEBUG)
-					Log.e(TAG, "------onClick ForbidOp");
+				if(HappyDoodleApp.DEBUG) {
+                    Log.e(TAG, "------onClick ForbidOp");
+                }
 				return ;
 			}
 			myMainLayout.setIsIntercept(true);
@@ -702,8 +726,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 */				
 				if(mMediaPlayer!=null)
 				{
-					if(mMediaPlayer.isPlaying())
-						mMediaPlayer.stop();
+					if(mMediaPlayer.isPlaying()) {
+                        mMediaPlayer.stop();
+                    }
 					mMediaPlayer.reset();
 			    	mMediaPlayer.release();
 				}
@@ -718,8 +743,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 				
 				if(mMediaPlayer!=null)
 				{
-					if(mMediaPlayer.isPlaying())
-						mMediaPlayer.stop();
+					if(mMediaPlayer.isPlaying()) {
+                        mMediaPlayer.stop();
+                    }
 					mMediaPlayer.reset();
 			    	mMediaPlayer.release();
 				}
@@ -750,8 +776,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
     	
 		@Override
 		public void onCompletion(MediaPlayer mp) {
-			if(HappyDoodleApp.DEBUG)
-				Log.e(TAG, "------onCompletion------flag="+flag);
+			if(HappyDoodleApp.DEBUG) {
+                Log.e(TAG, "------onCompletion------flag="+flag);
+            }
 			if(mp == mMediaPlayer)
 			{
 				Intent intent;
@@ -778,8 +805,9 @@ public class SelectCanvasActivity extends BaseActivity implements PermissionList
 					}
 					break;
 				case 2:
-					if(HappyDoodleApp.DEBUG)
-						Log.e(TAG, "------onCompletion------");
+					if(HappyDoodleApp.DEBUG) {
+                        Log.e(TAG, "------onCompletion------");
+                    }
 					intent = new Intent(SelectCanvasActivity.this,DoodleActivity.class);
 					intent.putExtra("AGE", mAge);
 					intent.putExtra("CANVAS_INDEX", mIconIndex);

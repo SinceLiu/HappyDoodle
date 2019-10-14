@@ -236,8 +236,9 @@ public class OpusViewPagerAdapter extends PagerAdapter {
 		ViewPager viewPager = ((OpusSetActivity)mContext).getViewPager();
 		for (int i = 0; i < viewPager.getChildCount(); i++) {
 			v = viewPager.getChildAt(i);
-			if (isViewFromObject(v, o))
-				return v;
+			if (isViewFromObject(v, o)) {
+                return v;
+            }
 		}
 		return null;
 	}

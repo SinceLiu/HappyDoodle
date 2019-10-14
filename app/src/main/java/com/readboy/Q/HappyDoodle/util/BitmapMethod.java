@@ -40,8 +40,9 @@ public class BitmapMethod {
 		int fgWidth = foreground.getWidth();
 		int fgHeight = foreground.getHeight();
 		Bitmap newmap = Bitmap.createBitmap(bgWidth, bgHeight, Config.ARGB_8888);
-		if(HappyDoodleApp.DEBUG)
-			Log.i(TAG, "bgWidth=" + bgWidth + ",bgHeight=" + bgHeight);
+		if(HappyDoodleApp.DEBUG) {
+            Log.i(TAG, "bgWidth=" + bgWidth + ",bgHeight=" + bgHeight);
+        }
 		Canvas canvas = new Canvas(newmap);
 		if(bgType == 1){
 			canvas.drawColor(Color.WHITE);	//设置画布颜色为白色
@@ -51,8 +52,9 @@ public class BitmapMethod {
 				(bgHeight - fgHeight) / 2, null);
 		canvas.save(Canvas.ALL_SAVE_FLAG);
 		canvas.restore();
-		if (newmap == null)
-			Log.e(TAG, "newmap=null");
+		if (newmap == null) {
+            Log.e(TAG, "newmap=null");
+        }
 		return newmap;
 	}
 	//保存图片

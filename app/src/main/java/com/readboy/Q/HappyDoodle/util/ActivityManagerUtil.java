@@ -39,8 +39,9 @@ public class ActivityManagerUtil {
 	 * @return ActivityManagerUtil
 	 */
 	public static ActivityManagerUtil getInstance() {
-		if(null == mInstance)
-			mInstance = new ActivityManagerUtil();
+		if(null == mInstance) {
+            mInstance = new ActivityManagerUtil();
+        }
 		return mInstance;
 	}
 	

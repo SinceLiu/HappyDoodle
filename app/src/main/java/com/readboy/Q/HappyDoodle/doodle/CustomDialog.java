@@ -82,11 +82,13 @@ public class CustomDialog extends ReadboyDialog {
 			public void onActionCallback(String action) {
 				if(HappyDoodleApp.DEBUG)
 //					Log.e(TAG, "============onActionCallback========"+action);
-				if(mHasFocus && action.equals(Intent.ACTION_SCREEN_ON))
-				{
-					SelectCanvasActivity.mIsNeedPauseBkSnd = true;
-			    	SelectCanvasActivity.resumeBkSnd();
-				}
+                {
+                    if(mHasFocus && action.equals(Intent.ACTION_SCREEN_ON))
+                    {
+                        SelectCanvasActivity.mIsNeedPauseBkSnd = true;
+                        SelectCanvasActivity.resumeBkSnd();
+                    }
+                }
 			}
 		});
 	}
@@ -101,8 +103,9 @@ public class CustomDialog extends ReadboyDialog {
     	CustomDialog dialog = new CustomDialog(context);
         //dialog.setCancelable(false);//不响应BACK键
         
-        if(mScreenActionReceiver == null)
-        	initScreenActionReceiver();
+        if(mScreenActionReceiver == null) {
+            initScreenActionReceiver();
+        }
         
         mScreenActionReceiver.registerScreenActionReceiver();
         dialog.setOnDismissListener(new OnDismissListener() {
@@ -124,9 +127,11 @@ public class CustomDialog extends ReadboyDialog {
 //        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)//Android5.0
 //			mWindow.addPrivateFlags(0x80000000);
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)//Android4.4
-			mWindow.setFlags(0x80000000, 0x80000000);
-		else
-			mWindow.setFlags(0x02000000, 0x02000000);
+        {
+            mWindow.setFlags(0x80000000, 0x80000000);
+        } else {
+            mWindow.setFlags(0x02000000, 0x02000000);
+        }
             
         Log.v(TAG, "------------dialog = "+dialog);
 //        dialog.show();
@@ -148,16 +153,17 @@ public class CustomDialog extends ReadboyDialog {
 		yes_btn = (Button) view.findViewById(R.id.yesBtn);
 		no_btn = (Button) view.findViewById(R.id.noBtn);
 		hintText = (ImageView) view.findViewById(R.id.hintText);
-		if(mDialogStyle == DialogStyle.SAVE)
-			hintText.setImageResource(R.drawable.save_hint);
-		else if(mDialogStyle == DialogStyle.DELETE)
-			hintText.setImageResource(R.drawable.delete_hint);
-		else if(mDialogStyle == DialogStyle.EXIT_BABY)
-			hintText.setImageResource(R.drawable.exitbaby_hint);
-		else if(mDialogStyle == DialogStyle.EXIT_SILKWORM)
-			hintText.setImageResource(R.drawable.exit_silkworm);
-		else if(mDialogStyle == DialogStyle.EXIT_LADYBUG)
-			hintText.setImageResource(R.drawable.exit_silkworm);
+		if(mDialogStyle == DialogStyle.SAVE) {
+            hintText.setImageResource(R.drawable.save_hint);
+        } else if(mDialogStyle == DialogStyle.DELETE) {
+            hintText.setImageResource(R.drawable.delete_hint);
+        } else if(mDialogStyle == DialogStyle.EXIT_BABY) {
+            hintText.setImageResource(R.drawable.exitbaby_hint);
+        } else if(mDialogStyle == DialogStyle.EXIT_SILKWORM) {
+            hintText.setImageResource(R.drawable.exit_silkworm);
+        } else if(mDialogStyle == DialogStyle.EXIT_LADYBUG) {
+            hintText.setImageResource(R.drawable.exit_silkworm);
+        }
 		
 		MyOnClickListenner clickListenner = new MyOnClickListenner();
 		yes_btn.setOnClickListener(clickListenner);
@@ -205,17 +211,20 @@ public class CustomDialog extends ReadboyDialog {
 	public void onWindowFocusChanged(boolean hasFocus) {
 		if(HappyDoodleApp.DEBUG)
 //			Log.e(TAG, "------onWindowFocusChanged------hasFocus="+hasFocus);
-    	if(hasFocus)
-    	{
-    		mHasFocus = true;
-    		SelectCanvasActivity.mIsNeedPauseBkSnd = true;
-    		if(!isOwnerActPause())
-    			SelectCanvasActivity.resumeBkSnd();
-    	}
-    	else 
-    	{
-    		mHasFocus = false;
-		}
+        {
+            if(hasFocus)
+            {
+                mHasFocus = true;
+                SelectCanvasActivity.mIsNeedPauseBkSnd = true;
+                if(!isOwnerActPause()) {
+                    SelectCanvasActivity.resumeBkSnd();
+                }
+            }
+            else
+            {
+                mHasFocus = false;
+            }
+        }
     	
 		super.onWindowFocusChanged(hasFocus);
 	}
