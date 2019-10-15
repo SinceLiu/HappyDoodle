@@ -72,17 +72,22 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      */
     private boolean isInitBm = false;
     /**
+     * 退出时停止线程
+     */
+    private boolean isFinished = false;
+    /**
      * 线条颜色
      */
     private int color_line = Constant.LINE_COLOR;
 
     public DoodleView(Context context) {
         super(context);
-
+        isFinished = false;
     }
 
     public DoodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        isFinished = false;
 		/*canvaswidth = 751;
 		canvasheight = 415;*/
 
@@ -307,7 +312,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         }
     }
 
-    // @Override
+    @Override
     public boolean onTouch(View v, MotionEvent e) {
         if (DoodleActivity.mIsForbidOp || !DoodleActivity.isDoodleViewInitEnd) {
             //Log.e("DoodleView", "ForbidOp!!!");
@@ -351,6 +356,10 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         return false;
     }
 
+    public void setFinished() {
+        isFinished = true;
+    }
+
     /**
      * 第一次填色先全图扫描，把线条与不能填充的白色背景区域填充同一种颜色，但因为此处填的是下层bitmap，虽然
      * 不能填充的白色背景区域也被填成了与线条颜色相同的同一颜色，但因为有上层遮盖了，所以看不到。
@@ -363,10 +372,12 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         //Log.e(TAG, "curcolor=" + curcolor);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
+                if (isFinished) {
+                    return;
+                }
                 if (bm.getPixel(j, i) != curcolor) {
                     bm.setPixel(j, i, color_line);
                 }
-
             }
         }
     }
