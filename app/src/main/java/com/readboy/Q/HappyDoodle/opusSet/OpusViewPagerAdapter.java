@@ -76,7 +76,7 @@ public class OpusViewPagerAdapter extends PagerAdapter {
 					public void onBtnClick(View view, String btnName) {
 						//Log.e(TAG, "btnName="+btnName);
 						((OpusSetActivity)mContext).dismissDialog();
-						if(btnName.equals("yes_btn"))
+						if("yes_btn".equals(btnName))
 						{
 							deleteOpus(mSelectIndex);
 						}

@@ -79,7 +79,7 @@ public class DataManager {
 		try 
 		{	
 			String sndPath = mDataSource.getSndPath(idSnd);
-			if(sndPath == null || sndPath.equals(""))
+			if(sndPath == null || "".equals(sndPath))
 			{
 				Log.e(TAG, "sndPath is empty");
 				return mp;
@@ -120,7 +120,7 @@ public class DataManager {
 		try 
 		{	
 			//String sndPath = mDataSource.getSndPath(idSnd);
-			if(sndPath == null || sndPath.equals(""))
+			if(sndPath == null || "".equals(sndPath))
 			{
 				Log.e(TAG, "sndPath is empty");
 				return mp;
@@ -232,7 +232,7 @@ public class DataManager {
 	 */
 	public static Bitmap decodeBitmapFromAsset(String bmpPath,Config bitmapConfig) {
 		Bitmap bitmap = null;
-		if(bmpPath == null || bmpPath.equals(""))
+		if(bmpPath == null || "".equals(bmpPath))
 		{
 			Log.e(TAG, "bmpPath is empty");
 			return bitmap;
@@ -260,7 +260,7 @@ public class DataManager {
 	 */
 	public static Bitmap decodeBitmapFromPath(String bmpPath,Config bitmapConfig) {
 		Bitmap bitmap = null;
-		if(bmpPath == null || bmpPath.equals(""))
+		if(bmpPath == null || "".equals(bmpPath))
 		{
 			Log.e(TAG, "bmpPath is empty");
 			return bitmap;

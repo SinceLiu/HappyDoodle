@@ -474,7 +474,7 @@ public class DoodleActivity extends BaseActivity {
                 public void onBtnClick(View view, String btnName) {
                     // Log.e(TAG, "btnName="+btnName);
                     dismissDialog();
-                    if (btnName.equals("yes_btn")) {
+                    if ("yes_btn".equals(btnName)) {
                         if (!savaFile()) // 保存失败则不进操作
                         {
                             return;
@@ -536,10 +536,10 @@ public class DoodleActivity extends BaseActivity {
                 @Override
                 public void onBtnClick(View view, String btnName) {
                     // Log.e(TAG, "btnName="+btnName);
-                    if (btnName.equals("yes_btn")) { // 退出宝贝计划涂鸦/蚕宝宝成长记/瓢虫的世界，返回原ap
+                    if ("yes_btn".equals(btnName)) { // 退出宝贝计划涂鸦/蚕宝宝成长记/瓢虫的世界，返回原ap
                         dismissDialog();
                         finish();
-                    } else if (btnName.equals("no_btn")) {
+                    } else if ("no_btn".equals(btnName)) {
                         if (mMediaPlayer != null) {
                             if (mMediaPlayer.isPlaying()) {
                                 mMediaPlayer.stop();
@@ -1369,7 +1369,8 @@ public class DoodleActivity extends BaseActivity {
                             e.printStackTrace();
                         }
                     }
-
+                    break;
+                default:
                     break;
             }
         }
