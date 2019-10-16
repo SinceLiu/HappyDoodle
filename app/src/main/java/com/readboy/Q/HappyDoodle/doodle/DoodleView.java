@@ -14,8 +14,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Point;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -74,22 +72,16 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      */
     private boolean isInitBm = false;
     /**
-     * 退出时停止线程
-     */
-    private boolean isFinished = false;
-    /**
      * 线条颜色
      */
     private int color_line = Constant.LINE_COLOR;
 
     public DoodleView(Context context) {
         super(context);
-        isFinished = false;
     }
 
     public DoodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        isFinished = false;
 		/*canvaswidth = 751;
 		canvasheight = 415;*/
 
@@ -119,7 +111,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         }
 
         if (!isDraw) {
-            shaomiao();
+            saomiao();
         }
 
         //Log.e(TAG, "initBitmap end");
@@ -137,23 +129,11 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
     @Override
     protected void onPaint(Canvas canvas) {
         super.onPaint(canvas);
-		/*if (!isInitBm) {
-			c.drawBitmap(temp, (canvaswidth - temp.getWidth()) / 2,
-					(canvasheight - temp.getHeight()) / 2, p);
-			isInitBm = true;
-
-		}*/
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
-        //Log.e(TAG, "temp2="+temp2+",isDoodleViewInitEnd="+DoodleActivity.isDoodleViewInitEnd);
         if (bm != null && temp2 != null && DoodleActivity.isDoodleViewInitEnd) {
             canvas.drawBitmap(bm, 0, 0, p);
             canvas.drawBitmap(temp2, 0,
                     0, p);
-        }
-        if (bm != null && !bm.isRecycled()) {
-//			LayoutParams layoutParams = new LayoutParams(bm.getWidth(), bm.getHeight());
-//			layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-//			setLayoutParams(layoutParams);
         }
     }
 
@@ -317,7 +297,6 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent e) {
         if (DoodleActivity.mIsForbidOp || !DoodleActivity.isDoodleViewInitEnd) {
-            //Log.e("DoodleView", "ForbidOp!!!");
             return true;
         }
 
@@ -330,17 +309,13 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
             Log.e(TAG, "touch point OutOfArea,point=" + x + "," + y);
             return false;
         }
-		/*if (!isDraw) {
-			shaomiao();
-
-		}*/
 
         if (e.getAction() == MotionEvent.ACTION_DOWN && bm.getPixel(x, y) != color_line) {
             if (temp1 != null && temp1.isRecycled()) {
                 temp1.recycle();
             }
             temp1 = Bitmap.createBitmap(bm);
-            fillarea(x, y, color);
+            fillArea(x, y, color);
             if (HappyDoodleApp.DEBUG) {
                 Log.i(TAG, "isOutOfArea=" + isOutOfArea);
             }
@@ -357,28 +332,22 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         return false;
     }
 
-    public void setFinished() {
-        isFinished = true;
-    }
-
     /**
      * 第一次填色先全图扫描，把线条与不能填充的白色背景区域填充同一种颜色，但因为此处填的是下层bitmap，虽然
      * 不能填充的白色背景区域也被填成了与线条颜色相同的同一颜色，但因为有上层遮盖了，所以看不到。
      * 注：存在一个问题，即color_line不能与可以填充的新颜色值相同。
      */
-    private void shaomiao() {
+    private void saomiao() {
         int curcolor = bm.getPixel(2, 2);
-        //Log.e(TAG, "curcolor=" + curcolor);
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < w; j++) {
-                if (isFinished) {
-                    return;
-                }
-                if (bm.getPixel(j, i) != curcolor) {
-                    bm.setPixel(j, i, color_line);
-                }
+        int size = w * h;
+        int[] pixels = new int[size];
+        bm.getPixels(pixels, 0, w, 0, 0, w, h);
+        for (int i = 0; i < size; i++) {
+            if (pixels[i] != curcolor) {
+                pixels[i] = color_line;
             }
         }
+        bm.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
     public static Bitmap small(Bitmap bitmap) {
@@ -396,13 +365,16 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
     private boolean isOutOfArea = false;
 
     // 扫描种子填充算法
-    private void fillarea(int x, int y, int color) {
+    private void fillArea(int x, int y, int color) {
         Point tmp = new Point(x, y);
         points.add(tmp);
+        int curColor = bm.getPixel(x, y);
+        int[] pixels = new int[w * h];
+        bm.getPixels(pixels, 0, w, 0, 0, w, h);
         while (points.size() > 0) {
             tmp = points.get(0);
-            if (bm.getPixel(tmp.x, tmp.y) != color) {
-                fillaline(tmp.x, tmp.y, color);
+            if (pixels[tmp.y * w + tmp.x] != color) {
+                fillaline(pixels, curColor, tmp.x, tmp.y, color);
                 if (isOutOfArea) {
                     points.clear();
                     break;
@@ -410,58 +382,56 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
             }
             points.remove(0);
         }
+        bm.setPixels(pixels, 0, w, 0, 0, w, h);
     }
 
-    private void fillaline(int x, int y, int color) {
-        int curcolor = bm.getPixel(x, y);
-        bm.setPixel(x, y, color);
+    private void fillaline(int[] pixels, int curColor, int x, int y, int color) {
+        int index = y * w + x;
+        pixels[index] = color;
         int leftx = x, rightx = x;
         while (leftx > 1) {
             leftx--;
-            if (bm.getPixel(leftx, y) != curcolor) {
+            index = y * w + leftx;
+            if (pixels[index] != curColor) {
                 break;
             }
-            bm.setPixel(leftx, y, color);
-            // canvas.drawPoint(leftx, y, paint);
+            pixels[index] = color;
         }
         if (leftx == 1) {
             isOutOfArea = true;
             return;
         }
-//        if (leftx == 1) {
-//            bm.setPixel(leftx - 1, y, color);
-//        }
+
         while (rightx < w - 1) {
             rightx++;
-            if (bm.getPixel(rightx, y) != curcolor) {
+            index = y * w + rightx;
+            if (pixels[index] != curColor) {
                 break;
             }
-            bm.setPixel(rightx, y, color);
-            // canvas.drawPoint(rightx, y, paint);
+            pixels[index] = color;
         }
         if (rightx == w - 1) {
             isOutOfArea = true;
             return;
         }
-        // canvas.drawLine(leftx, y, rightx, y, paint);
         if (y - 1 >= 0) {
             for (int i = leftx + 1; i <= rightx; i++) {
-                if (bm.getPixel(i, y - 1) == curcolor && bm.getPixel(i + 1, y - 1) != curcolor) {
+                if (pixels[(y - 1) * w + i] == curColor && pixels[(y - 1) * w + i + 1] != curColor) {
                     points.add(new Point(i, y - 1));
                 }
             }
-            if (bm.getPixel(rightx - 1, y - 1) == curcolor) {
+            if (pixels[(y - 1) * w + rightx - 1] == curColor) {
                 points.add(new Point(rightx - 1, y - 1));
             }
         }
 
         if (y + 1 < h) {
             for (int i = leftx + 1; i < rightx; i++) {
-                if (bm.getPixel(i, y + 1) == curcolor && bm.getPixel(i + 1, y + 1) != curcolor) {
+                if (pixels[(y + 1) * w + i] == curColor && pixels[(y + 1) * w + i + 1] != curColor) {
                     points.add(new Point(i, y + 1));
                 }
             }
-            if (bm.getPixel(rightx - 1, y + 1) == curcolor) {
+            if (pixels[(y + 1) * w + rightx - 1] == curColor) {
                 points.add(new Point(rightx - 1, y + 1));
             }
         }

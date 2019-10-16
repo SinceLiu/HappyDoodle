@@ -1429,7 +1429,6 @@ public class DoodleActivity extends BaseActivity {
                     showCustomDialog();
                 } else {
                     // SelectCanvasActivity.mIsNeedPauseBkSnd = false;
-                    mDoodleView.setFinished();
                     finish();
                     // ActivityManagerUtil.getInstance().exit();//退出整个程序
                     overridePendingTransition(0, R.anim.slide_out_up);
@@ -1443,7 +1442,6 @@ public class DoodleActivity extends BaseActivity {
                     // SelectCanvasActivity.mIsNeedPauseBkSnd = false;
                     Intent intent = new Intent(DoodleActivity.this, OpusSetActivity.class);
                     launchForResult(intent, -1);
-                    mDoodleView.setFinished();
                     finish();
                     overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 }
