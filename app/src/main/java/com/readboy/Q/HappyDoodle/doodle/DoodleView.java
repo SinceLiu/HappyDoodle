@@ -38,6 +38,8 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      * 填充的目标bitmap，置于下层
      */
     private Bitmap bm;
+    private int w;
+    private int h;
     /**
      * 临时bitmap，用于填充失败（如填充点在不可填充区域）时恢复
      */
@@ -234,9 +236,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         if (this.bm != null && !this.bm.isRecycled()) {
             this.bm.recycle();
         }
-
         this.bm = bm;
-
+        w = bm.getWidth();
+        h = bm.getHeight();
     }
 
     public int getColor() {
@@ -333,8 +335,7 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 
 		}*/
 
-        if (e.getAction() == MotionEvent.ACTION_DOWN
-                && bm.getPixel(x, y) != color_line) {
+        if (e.getAction() == MotionEvent.ACTION_DOWN && bm.getPixel(x, y) != color_line) {
             if (temp1 != null && temp1.isRecycled()) {
                 temp1.recycle();
             }
@@ -367,8 +368,6 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      */
     private void shaomiao() {
         int curcolor = bm.getPixel(2, 2);
-        int w = bm.getWidth();
-        int h = bm.getHeight();
         //Log.e(TAG, "curcolor=" + curcolor);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
@@ -408,19 +407,13 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
                     points.clear();
                     break;
                 }
-
             }
-
             points.remove(0);
         }
-
     }
 
     private void fillaline(int x, int y, int color) {
-
         int curcolor = bm.getPixel(x, y);
-        int w = bm.getWidth();
-        int h = bm.getHeight();
         bm.setPixel(x, y, color);
         int leftx = x, rightx = x;
         while (leftx > 1) {
@@ -435,10 +428,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
             isOutOfArea = true;
             return;
         }
-
-        if (leftx == 1) {
-            bm.setPixel(leftx - 1, y, color);
-        }
+//        if (leftx == 1) {
+//            bm.setPixel(leftx - 1, y, color);
+//        }
         while (rightx < w - 1) {
             rightx++;
             if (bm.getPixel(rightx, y) != curcolor) {
@@ -452,27 +444,26 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
             return;
         }
         // canvas.drawLine(leftx, y, rightx, y, paint);
-        for (int i = leftx; i <= rightx; i++) {
-            if ((y - 1) >= 0 && bm.getPixel(i, y - 1) != curcolor
-                    && bm.getPixel(i - 1, y - 1) == curcolor && (i - 1) > leftx) {
-                points.add(new Point(i - 1, y - 1));
+        if (y - 1 >= 0) {
+            for (int i = leftx + 1; i <= rightx; i++) {
+                if (bm.getPixel(i, y - 1) == curcolor && bm.getPixel(i + 1, y - 1) != curcolor) {
+                    points.add(new Point(i, y - 1));
+                }
             }
-        }
-        if ((y - 1) >= 0 && bm.getPixel(rightx - 1, y - 1) == curcolor) {
-            points.add(new Point(rightx - 1, y - 1));
+            if (bm.getPixel(rightx - 1, y - 1) == curcolor) {
+                points.add(new Point(rightx - 1, y - 1));
+            }
         }
 
-        for (int i = leftx; i < rightx; i++) {
-            if ((y + 1) < h && bm.getPixel(i, y + 1) != curcolor
-                    && bm.getPixel(i - 1, y + 1) == curcolor && (i - 1) > leftx) {
-                points.add(new Point(i - 1, y + 1));
+        if (y + 1 < h) {
+            for (int i = leftx + 1; i < rightx; i++) {
+                if (bm.getPixel(i, y + 1) == curcolor && bm.getPixel(i + 1, y + 1) != curcolor) {
+                    points.add(new Point(i, y + 1));
+                }
             }
-        }
-        if ((y + 1) < h
-                && bm.getPixel(rightx - 1, y + 1) == curcolor) {
-            points.add(new Point(rightx - 1, y + 1));
+            if (bm.getPixel(rightx - 1, y + 1) == curcolor) {
+                points.add(new Point(rightx - 1, y + 1));
+            }
         }
     }
-
-
 }
