@@ -2,8 +2,8 @@
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:horizontalSpacing="24dp"
-    android:verticalSpacing="43dp"
+    android:horizontalSpacing="@dimen/color_gridview_horizontal_spacing"
+    android:verticalSpacing="@dimen/color_gridview_vertical_spacing"
     android:numColumns="2"
     android:listSelector="#0000ff00"
     android:gravity="center_vertical" >

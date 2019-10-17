@@ -16,8 +16,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_marginLeft="360dp"
-	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="@dimen/opus_set_btn_del_margin_left"
+	        android:layout_marginTop="@dimen/opus_set_margin_top"
 	        android:visibility="gone"
 	        android:background="@drawable/opus_del_button_selector"
 	        android:soundEffectsEnabled="false"
@@ -29,8 +29,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_marginRight="10dp"
-	        android:layout_marginTop="23dp"
+	        android:layout_marginRight="@dimen/opus_set_btn_close_margin_right"
+	        android:layout_marginTop="@dimen/opus_set_btn_close_margin_top"
 	        android:visibility="visible"
 	        android:background="@drawable/guide_close_button_selector"
 	        android:soundEffectsEnabled="false"
@@ -39,9 +39,9 @@
 	    <!-- viewPager控件 用于手势滑动翻页  -->
 	    <android.support.v4.view.ViewPager  
 	        android:id="@+id/viewpager"  
-	        android:layout_width="1230dp"  
+	        android:layout_width="@dimen/opus_set_viewpager_width"
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="238dp"
+	        android:layout_marginTop="@dimen/opus_set_viewpager_margin_top"
 	        android:layout_centerHorizontal="true"
 	         >
 	         
@@ -51,7 +51,7 @@
 	        android:id="@+id/page_indicator"
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:layout_marginBottom="15dp"
+		    android:layout_marginBottom="@dimen/opus_set_indicator_margin_bottom"
 			android:layout_alignParentBottom="true"
 		    android:gravity="center_horizontal"
 		    android:orientation="horizontal"

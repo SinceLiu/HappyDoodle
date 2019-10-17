@@ -82,39 +82,22 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
 
     public DoodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-		/*canvaswidth = 751;
-		canvasheight = 415;*/
-
-		/*bm = Bitmap.createBitmap(canvaswidth, canvasheight,
-				Bitmap.Config.ARGB_8888);
-		temp1 = Bitmap.createBitmap(bm);
-		c = new Canvas(bm);//将画布关联bitmap
-		color_line = Constant.LINE_COLOR;*/
-
+		color_line = Constant.LINE_COLOR;
         p = new Paint();
         p.setAntiAlias(true);
-        //Log.e(TAG, "bm="+bm);
-        //invalidate();//没必要
-
         setOnTouchListener(this);
 
     }
 
     public void initBitmap() {
-        //Log.e(TAG, "isInitBm="+isInitBm);
         if (!isInitBm) {
-			/*c.drawBitmap(temp, (canvaswidth - temp.getWidth()) / 2,
-					(canvasheight - temp.getHeight()) / 2, p);*/
             setBm(temp.copy(Bitmap.Config.ARGB_8888, true));
             isInitBm = true;
-
         }
 
         if (!isDraw) {
             saomiao();
         }
-
-        //Log.e(TAG, "initBitmap end");
     }
 
     @Override
@@ -141,26 +124,9 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      * 清除底图
      */
     public void clear() {
-
-		/*Log.e(TAG, "clear+++++++++");
-		Paint paint2 = new Paint();
-		paint2.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
-		Log.e(TAG, "clear+++++++++ 11111111111111"); 
-		c.drawPaint(paint2);
-		Log.e(TAG, "clear+++++++++ 222222222222222"); 
-		paint2.setXfermode(new PorterDuffXfermode(Mode.SRC));*/
-        //Log.e(TAG, "clear+++++++++ 333333333333333 bm="+bm);
         if (bm != null && !bm.isRecycled()) {
             bm.recycle();
         }
-        //Log.e(TAG, "clear+++++++++ 444444444444 w,h="+canvaswidth+","+canvasheight);
-        //bm = Bitmap.createBitmap(canvaswidth, canvasheight,
-        //		Bitmap.Config.ARGB_8888);
-        //Log.e(TAG, "clear+++++++++ 555555555555 bm="+bm);
-        //c = new Canvas(bm);
-        //Log.e(TAG, "clear+++++++++ 666666666666666");
-        //invalidate();
-
     }
 
     public Bitmap getTemp() {
@@ -173,23 +139,21 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
      * @param temp 填充底图
      */
     public void setTemp(Bitmap temp) {
-        //Log.e(TAG, "temp="+temp);
         if (this.temp != null && !this.temp.isRecycled()) {
             this.temp.recycle();
         }
-        //Log.e(TAG, "setTemp++++++++++");
-        float width = HappyDoodleApp.getScreenWidth();
-        if (width >= 2560 && width != Constant.C20_WIDTH) {
-            float scaleX = 1.5f;//width / 1280f;
-            Matrix matrix = new Matrix();
-            matrix.setScale(scaleX, scaleX);// 缩小为原来的一半
-            Bitmap tmp = Bitmap.createBitmap(temp, 0, 0, temp.getWidth(),
-                    temp.getHeight(), matrix, true);
-            if (temp != null && !temp.isRecycled()) {
-                temp.recycle();
-            }
-            temp = tmp;
+        //TODO 若添加了其它尺寸的图片就不需要伸缩
+        //这里以2880x1920 C20的为基准
+        float widthScale = HappyDoodleApp.getScreenWidth() / 2880.0f;
+        float heightScale = HappyDoodleApp.getScreenHeight() / 1920.0f;
+        Matrix matrix = new Matrix();
+        matrix.setScale(widthScale, heightScale);
+        Bitmap tmp = Bitmap.createBitmap(temp, 0, 0, temp.getWidth(),
+                temp.getHeight(), matrix, true);
+        if (!temp.isRecycled()) {
+            temp.recycle();
         }
+        temp = tmp;
 
         this.temp = temp;
         isDraw = false;
@@ -199,14 +163,6 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
         //invalidate();
         postInvalidate();
     }
-
-	/*public boolean isClear() {
-		return isClear;
-	}
-
-	public void setClear(boolean isClear) {
-		this.isClear = isClear;
-	}*/
 
     public Bitmap getBm() {
         return bm;
@@ -251,30 +207,21 @@ public class DoodleView extends ReadboyView implements OnTouchListener {
             this.temp2.recycle();
         }
 
-        float width = HappyDoodleApp.getScreenWidth();
-        if (width >= 2560 && width != Constant.C20_WIDTH) {
-            float scaleX = 1.5f;//width / 1280f;
-            Matrix matrix = new Matrix();
-            matrix.setScale(scaleX, scaleX);// 缩小为原来的一半
-            Bitmap tmp = Bitmap.createBitmap(temp2, 0, 0, temp2.getWidth(),
-                    temp2.getHeight(), matrix, true);
-            if (temp2 != null && !temp2.isRecycled()) {
-                temp2.recycle();
-            }
-            temp2 = tmp;
+        //TODO 若添加了其它尺寸的图片就不需要伸缩
+        //这里以2880x1920 C20的为基准
+        float widthScale = HappyDoodleApp.getScreenWidth() / 2880.0f;
+        float heightScale = HappyDoodleApp.getScreenHeight() / 1920.0f;
+        Matrix matrix = new Matrix();
+        matrix.setScale(widthScale, heightScale);
+        Bitmap tmp = Bitmap.createBitmap(temp2, 0, 0, temp2.getWidth(),
+                temp2.getHeight(), matrix, true);
+        if (!temp2.isRecycled()) {
+            temp2.recycle();
         }
-        //Log.e(TAG, "++++++++++====setTemp2");
+        temp2 = tmp;
+
         this.temp2 = temp2;
-        //Log.e(TAG, "----------temp2="+this.temp2);
     }
-
-	/*public boolean getIsInitBm() {
-		return isInitBm;
-	}
-
-	public void setIsInitBm(boolean isInitBm) {
-		this.isInitBm = isInitBm;
-	}*/
 
     /**
      * 回收图片

@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginRight="@dimen/doodle_btn_close_marin_right"
+        android:layout_marginTop="@dimen/doodle_btn_close_margin_top"
         android:visibility="visible"
         android:background="@drawable/guide_close_button_selector" 
         android:soundEffectsEnabled="false"
@@ -21,10 +21,10 @@
     
     <ImageView
         android:id="@+id/title"
-        android:layout_marginTop="45dp"
-        android:layout_marginLeft="580dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/doodle_title_width"
+        android:layout_height="@dimen/doodle_title_height"
+        android:layout_marginTop="@dimen/doodle_title_margin_top"
+        android:layout_marginLeft="@dimen/doodle_title_margin_left"
         android:src="@drawable/title1"
         />
     <!--android:layout_width="925dp"-->
@@ -38,8 +38,8 @@
 
         <com.readboy.Q.HappyDoodle.doodle.DoodleView
             android:id="@+id/doodle_view"
-            android:layout_width="682dp"
-            android:layout_height="522dp"
+            android:layout_width="@dimen/doodle_view_width"
+            android:layout_height="@dimen/doodle_view_height"
             android:layout_centerInParent="true"
              >
         </com.readboy.Q.HappyDoodle.doodle.DoodleView>
@@ -60,8 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="62dp"
-        android:layout_marginTop="289dp"
+        android:layout_marginRight="@dimen/doodle_btn_show_margin_right"
+        android:layout_marginTop="@dimen/doodle_btn_show_margin_top"
         android:background="@drawable/show_sel" 
         android:visibility="gone"
         android:soundEffectsEnabled="false"
@@ -72,8 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="67dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginRight="@dimen/doodle_btn_opus_margin_right"
+        android:layout_marginTop="@dimen/doodle_btn_opus_margin_top"
         android:background="@drawable/select_opus_btn_selector" 
         android:soundEffectsEnabled="false"
         />
@@ -83,8 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="67dp"
-        android:layout_marginTop="401dp"
+        android:layout_marginRight="@dimen/doodle_btn_next_canvas_margin_right"
+        android:layout_marginTop="@dimen/doodle_btn_next_canvas_margin_top"
         android:enabled="false"
         android:background="@drawable/next_canvas_btn_selector" 
         android:soundEffectsEnabled="false"
@@ -95,8 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="69dp"
-        android:layout_marginTop="532dp"
+        android:layout_marginRight="@dimen/doodle_btn_upload_margin_right"
+        android:layout_marginTop="@dimen/doodle_btn_upload_margin_top"
         android:visibility="invisible"
         android:background="@drawable/upload_sel" 
         android:soundEffectsEnabled="false"
@@ -104,8 +104,8 @@
     
 	<Button
 		android:id="@+id/lastColorPageBtn"
-		android:layout_marginLeft="123dp"
-		android:layout_marginTop="70dp"
+		android:layout_marginLeft="@dimen/doodle_btn_last_color_margin_left"
+		android:layout_marginTop="@dimen/doodle_btn_last_color_margin_top"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:background="@drawable/last_color_page_selector" 
@@ -114,8 +114,8 @@
     
     <Button
         android:id="@+id/nextColorPageBtn"
-        android:layout_marginLeft="123dp"
-		android:layout_marginBottom="50dp"
+        android:layout_marginLeft="@dimen/doodle_btn_next_color_margin_left"
+		android:layout_marginBottom="@dimen/doodle_btn_next_color_margin_bottom"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,13 +125,12 @@
     
     <com.readboy.Q.HappyDoodle.doodle.VerticalViewPager 
         android:id="@+id/viewpager"
-        android:layout_marginLeft="56dp"
-		android:layout_marginTop="183dp"
-        android:layout_width="202dp"
-        android:layout_height="569dp"
+        android:layout_marginLeft="@dimen/doodle_viewpager_margin_left"
+		android:layout_marginTop="@dimen/doodle_viewpager_margin_top"
+        android:layout_width="@dimen/doodle_viewpager_width"
+        android:layout_height="@dimen/doodle_viewpager_height"
         >
-        
-        
+
     </com.readboy.Q.HappyDoodle.doodle.VerticalViewPager>
     
     <ImageView 
@@ -140,8 +139,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginRight="@dimen/doodle_iv_mouse_margin_right"
+        android:layout_marginBottom="@dimen/doodle_iv_mouse_margin_bottom"
         android:background="@drawable/mouse_normal0"
         />
     

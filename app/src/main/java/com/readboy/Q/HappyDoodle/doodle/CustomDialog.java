@@ -43,7 +43,7 @@ public class CustomDialog extends ReadboyDialog {
 	private static boolean mHasFocus;
 	/** 屏幕事件广播接收器 */
 	private static ScreenActionReceiver mScreenActionReceiver;
-	
+
 	/** 窗口类型 */
 	public static enum DialogStyle
 	{
@@ -58,23 +58,23 @@ public class CustomDialog extends ReadboyDialog {
 		/** 询问是否退出瓢虫对话框 */
 		EXIT_LADYBUG;
 	}
-	
+
 	/**
 	 * 初始化对话框
 	 * @param context 上下文
 	 * @param dialogStyle 对话框类型
 	 * @param callback 点击按钮后的回调
 	 */
-	public static void initialize(Context context,DialogStyle dialogStyle,OnBtnClickCallback callback) 
+	public static void initialize(Context context,DialogStyle dialogStyle,OnBtnClickCallback callback)
 	{
 		CustomDialog.context = context;
 		mCallback = callback;
 		mDialogStyle = dialogStyle;
 		mHasFocus = false;
-		
+
 //		initScreenActionReceiver();
     }
-	
+
 	private static void initScreenActionReceiver() {
 		mScreenActionReceiver = new ScreenActionReceiver(context, new ActionCallback()
 		{
@@ -92,24 +92,24 @@ public class CustomDialog extends ReadboyDialog {
 			}
 		});
 	}
-	
+
 	/**
 	 * 显示对话框，并保证一次只弹出一个
 	 */
 	public static CustomDialog CreateDialog(Context context) {
         // There should be only one dialog running at a time.
 		//Log.e(TAG, "dialog="+dialog);
-        	
+
     	CustomDialog dialog = new CustomDialog(context);
         //dialog.setCancelable(false);//不响应BACK键
-        
+
         if(mScreenActionReceiver == null) {
             initScreenActionReceiver();
         }
-        
+
         mScreenActionReceiver.registerScreenActionReceiver();
         dialog.setOnDismissListener(new OnDismissListener() {
-			
+
 			@Override
 			public void onDismiss(DialogInterface dialog) {
 				//Log.e(TAG, "============onDismiss========");
@@ -120,9 +120,9 @@ public class CustomDialog extends ReadboyDialog {
 	            }
 			}
 		});
-        
+
         dialog.getWindow().setWindowAnimations(R.style.dialog_down_slide_style);
-        
+
         Window mWindow = dialog.getWindow();
 //        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)//Android5.0
 //			mWindow.addPrivateFlags(0x80000000);
@@ -132,12 +132,12 @@ public class CustomDialog extends ReadboyDialog {
         } else {
             mWindow.setFlags(0x02000000, 0x02000000);
         }
-            
+
         Log.v(TAG, "------------dialog = "+dialog);
 //        dialog.show();
         return dialog;
     }
-	
+
 	/**
 	 * 私有构造函数
 	 */
@@ -149,7 +149,7 @@ public class CustomDialog extends ReadboyDialog {
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		getWindow().setGravity(Gravity.TOP|Gravity.FILL_HORIZONTAL);
 //		getWindow().getAttributes().systemUiVisibility |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-		
+
 		yes_btn = (Button) view.findViewById(R.id.yesBtn);
 		no_btn = (Button) view.findViewById(R.id.noBtn);
 		hintText = (ImageView) view.findViewById(R.id.hintText);
@@ -164,13 +164,13 @@ public class CustomDialog extends ReadboyDialog {
         } else if(mDialogStyle == DialogStyle.EXIT_LADYBUG) {
             hintText.setImageResource(R.drawable.exit_silkworm);
         }
-		
+
 		MyOnClickListenner clickListenner = new MyOnClickListenner();
 		yes_btn.setOnClickListener(clickListenner);
 		no_btn.setOnClickListener(clickListenner);
 	}
-	
-	
+
+
 	/**
      * 判断所属activity是否已经暂停了
      * @return 暂停返回true，否则false
@@ -194,19 +194,19 @@ public class CustomDialog extends ReadboyDialog {
 				ret = true ;
 			}
 		}
-    	
+
     	return ret;
 	}
-	
-    
+
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
 		//Log.e(TAG, "============onBackPressed========");
 		mCallback.onBtnClick(null, "no_btn");
 	}
-	
-	
+
+
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		if(HappyDoodleApp.DEBUG)
@@ -225,11 +225,11 @@ public class CustomDialog extends ReadboyDialog {
                 mHasFocus = false;
             }
         }
-    	
+
 		super.onWindowFocusChanged(hasFocus);
 	}
-	
-	
+
+
 	/**
      * 按钮等view的单击监听器
      * 注：因为dialog本身继承了一个DialogInterface接口，而改接口中有同样名字的OnClickListener()方法，
@@ -251,12 +251,12 @@ public class CustomDialog extends ReadboyDialog {
 				//savaFile();
 				mCallback.onBtnClick(v, "no_btn");
 			}
-			
-			
+
+
 		}
-    	
+
     }
-    
+
     /**
      * 按钮回调
      * @author css
@@ -271,5 +271,5 @@ public class CustomDialog extends ReadboyDialog {
     	 */
     	void onBtnClick(View view,String btnName);
     }
-	
+
 }

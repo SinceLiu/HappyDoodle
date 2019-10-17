@@ -21,7 +21,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="168dp"
+        android:layout_marginLeft="@dimen/main_title_margin_left"
 	    android:layout_marginTop="0dp"
          />
 
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="10dp"
-	    android:layout_marginTop="23dp"
+        android:layout_marginRight="@dimen/main_btn_close_margin_right"
+	    android:layout_marginTop="@dimen/main_btn_close_margin_top"
         android:visibility="visible"
         android:background="@drawable/guide_close_button_selector"
         android:soundEffectsEnabled="false"

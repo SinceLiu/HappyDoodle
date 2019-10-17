@@ -10,9 +10,9 @@
 	    <!-- viewPager控件 用于手势滑动翻页  -->
 	    <android.support.v4.view.ViewPager  
 	        android:id="@+id/viewpager"  
-	        android:layout_width="924dp"  
-	        android:layout_height="487dp"
-	        android:layout_marginTop="147dp"
+	        android:layout_width="@dimen/opus_show_viewpager_width"
+	        android:layout_height="@dimen/opus_show_viewpager_height"
+	        android:layout_marginTop="@dimen/opus_show_viewpager_margin_top"
 	        android:layout_centerHorizontal="true"	        
 	         >
 	    </android.support.v4.view.ViewPager>
@@ -21,8 +21,8 @@
 	        android:id="@+id/lastOpusBtn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="52dp"
-	        android:layout_marginTop="355dp"
+	        android:layout_marginLeft="@dimen/opus_show_btn_last_margin_left"
+	        android:layout_marginTop="@dimen/opus_show_btn_last_margin_top"
 	        android:background="@drawable/opus_show_last_btn_selector" 
 	        android:soundEffectsEnabled="false"
 	        />
@@ -32,8 +32,8 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
-	        android:layout_marginRight="54dp"
-	        android:layout_marginTop="355dp"
+	        android:layout_marginRight="@dimen/opus_show_btn_next_margin_right"
+	        android:layout_marginTop="@dimen/opus_show_btn_next_margin_top"
 	        android:background="@drawable/opus_show_next_btn_selector"
 	        android:soundEffectsEnabled="false"
 	         />
@@ -44,8 +44,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_marginRight="10dp"
-	        android:layout_marginTop="23dp"
+	        android:layout_marginRight="@dimen/opus_show_btn_close_margin_right"
+	        android:layout_marginTop="@dimen/opus_show_btn_close_margin_top"
 	        android:visibility="visible"
 	        android:background="@drawable/guide_close_button_selector"
 	        android:soundEffectsEnabled="false"
